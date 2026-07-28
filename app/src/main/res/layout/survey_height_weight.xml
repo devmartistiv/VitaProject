@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Какой у Вас рост?"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
+        android:layout_marginBottom="24dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <!-- Значение роста крупным шрифтом в центре экрана -->
+        <TextView
+            android:id="@+id/tvHeightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="175"
+            android:textSize="48sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
+
+        <TextView
+            android:id="@+id/tvHeightUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="см"
+            android:textSize="20sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvHeightValue"
+            app:layout_constraintStart_toEndOf="@id/tvHeightValue" />
+
+        <!-- RecyclerView для отображения линейки роста -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/heightRulerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="32dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="120dp"
+            android:paddingEnd="120dp"
+            app:layout_constraintTop_toBottomOf="@id/tvHeightValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+            
+        <!-- Центральный индикатор -->
+        <View
+            android:id="@+id/centerIndicator"
+            android:layout_width="2dp"
+            android:layout_height="80dp"
+            android:background="@color/orange_500"
+            app:layout_constraintTop_toTopOf="@id/heightRulerRecyclerView"
+            app:layout_constraintBottom_toBottomOf="@id/heightRulerRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        
+        <!-- Оригинальный SeekBar скрыт, но оставлен для совместимости -->
+        <SeekBar
+            android:id="@+id/heightSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            style="@style/RulerSeekBarStyle"
+            android:progressTint="@color/orange_500"
+            android:thumbTint="@color/orange_500"
+            android:progressBackgroundTint="@color/gray_300"
+            android:max="230"
+            android:progress="175"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Дополнительная информация -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/gray_300"
+        app:cardBackgroundColor="?android:attr/colorBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ваш рост используется для:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Элементы списка использования роста -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/orange_500"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Расчета индекса массы тела (ИМТ)"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_check_circle"
+                    android:tint="@color/orange_500"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Расчета оптимального веса"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout> 

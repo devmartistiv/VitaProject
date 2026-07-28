@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:paddingBottom="16dp">
+
+    <View
+        android:id="@+id/dialog_indicator"
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/dialog_indicator_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/workout_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_indicator"
+        tools:text="Утренняя тренировка"
+        tools:visibility="visible" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/date_time_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/details_date_card_background"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/workout_name">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Иконка календаря -->
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_calendar"
+                app:layout_constraintBottom_toBottomOf="@id/workout_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/workout_date"
+                app:tint="?android:attr/textColorSecondary" />
+
+            <!-- Дата тренировки -->
+            <TextView
+                android:id="@+id/workout_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/calendar_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="16 октября 2023" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="?attr/dividerColor"
+                app:layout_constraintTop_toBottomOf="@id/workout_date" />
+
+            <!-- Иконка времени -->
+            <ImageView
+                android:id="@+id/time_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_time"
+                app:layout_constraintBottom_toBottomOf="@id/workout_duration"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/workout_duration"
+                app:tint="@color/orange_500" />
+
+            <!-- Длительность тренировки -->
+            <TextView
+                android:id="@+id/workout_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/orange_500"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/time_icon"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                tools:text="45 минут" />
+
+            <!-- Количество упражнений -->
+            <TextView
+                android:id="@+id/exercise_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="@id/workout_duration"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/workout_duration"
+                tools:text="8 упражнений" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/exercises_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Выполненные упражнения"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_time_container" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exercises_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exercises_header"
+        app:layout_constraintBottom_toTopOf="@id/repeat_workout_button" />
+
+    <!-- Кнопка "Повторить" -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/repeat_workout_button"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:text="Повторить тренировку"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="?attr/colorPrimary"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/ic_repeat"
+        app:iconGravity="textStart"
+        app:iconPadding="12dp"
+        app:iconSize="24dp"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/exercises_list"
+        app:rippleColor="@color/orange_700" />
+
+</androidx.constraintlayout.widget.ConstraintLayout> 

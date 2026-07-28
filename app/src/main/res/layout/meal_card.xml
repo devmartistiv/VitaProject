@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:paddingHorizontal="16dp"
+
+    android:paddingVertical="12dp">
+
+    <!-- Иконка приема пищи (более крупная и привлекательная) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/meal_icon_container"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:cardCornerRadius="14dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/meal_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            app:tint="@android:color/white" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Название приема пищи и калории -->
+    <TextView
+        android:id="@+id/meal_title"
+        style="@style/MealTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/expand_icon_container"
+        app:layout_constraintStart_toEndOf="@+id/meal_icon_container"
+        app:layout_constraintTop_toTopOf="@+id/meal_icon_container"
+        tools:text="Завтрак" />
+
+    <!-- Иконка разворачивания списка в привлекательном оформлении -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/expand_icon_container"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="#1A000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/meal_title">
+
+        <ImageView
+            android:id="@+id/expand_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_expand_more"
+            app:tint="?android:attr/textColorPrimary" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Общие калории с процентом от дневной нормы -->
+    <TextView
+        android:id="@+id/total_calories"
+        style="@style/MealSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/meal_title"
+        app:layout_constraintTop_toBottomOf="@+id/meal_title"
+        tools:text="320 ккал (15%)" />
+
+    <!-- Индикатор БЖУ для приема пищи (новый элемент) -->
+    <LinearLayout
+        android:id="@+id/macros_indicator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total_calories">
+
+        <!-- Белки -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/macros_background_proteins"
+            android:padding="8dp"
+            android:layout_marginEnd="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/macros_indicator_proteins" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Белки"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/proteins_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/proteins_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="12.5 г" />
+        </LinearLayout>
+
+        <!-- Жиры -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/macros_background_fats"
+            android:padding="8dp"
+            android:layout_marginHorizontal="2dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/macros_indicator_fats" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Жиры"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fats_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/fats_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="8.2 г" />
+        </LinearLayout>
+
+        <!-- Углеводы -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/macros_background_carbs"
+            android:padding="8dp"
+            android:layout_marginStart="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/macros_indicator_carbs" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Углеводы"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/carbs_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/carbs_text_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="45.8 г" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Разделительная линия -->
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="?android:attr/listDivider"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/macros_indicator" />
+
+    <!-- Список продуктов -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/food_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:nestedScrollingEnabled="false"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <!-- Кнопка добавления -->
+    <com.google.android.material.button.MaterialButton
+
+        android:id="@+id/add_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:paddingVertical="8dp"
+        android:text="Добавить продукт"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/food_list"
+        app:iconTint="@color/colorPrimary"
+        android:textColor="@color/colorPrimary"
+        app:strokeColor="@color/colorPrimary"
+        app:cornerRadius="15dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout> 

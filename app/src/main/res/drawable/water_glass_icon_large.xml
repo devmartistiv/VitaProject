@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    
+    <!-- Стакан (контур) - немного шире -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M6,3L18,3L17.5,5L17,10L16.5,15L16,20L8,20L7.5,15L7,10L6.5,5z"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"/>
+    
+    <!-- Вода в стакане - больше воды -->
+    <path
+        android:fillColor="#BBDEFB"
+        android:pathData="M7,10L17,10L16.5,15L16,20L8,20L7.5,15z"
+        android:fillAlpha="1.0"/>
+        
+    <!-- Блик на стакане -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8.5,12L9.5,12L9.5,17.5L9,17.5L8.5,15z"
+        android:fillAlpha="0.6"/>
+</vector> 

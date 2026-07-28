@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/exercise_set_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp">
+
+        <!-- Номер подхода -->
+        <TextView
+            android:id="@+id/set_number"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/circle_background_orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Блок повторений -->
+        <EditText
+            android:id="@+id/reps_input"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/edit_text_rounded_background"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toEndOf="@id/set_number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/repetitions_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="повторений"
+            android:layout_marginStart="4dp" 
+            android:textColor="@color/gray_400"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/reps_input"
+            app:layout_constraintBottom_toBottomOf="@id/reps_input"
+            app:layout_constraintTop_toTopOf="@id/reps_input" />
+
+        <!-- Кнопка действия (удаление/галочка) - ВОЗВРАЩАЕМ ОДНУ КНОПКУ -->
+        <ImageButton
+            android:id="@+id/action_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_delete" 
+            android:background="?attr/selectableItemBackgroundBorderless" 
+            app:tint="@color/orange_500" 
+            android:contentDescription="Действие с подходом" 
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView> 

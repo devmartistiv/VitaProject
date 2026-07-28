@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Цветной индикатор категории -->
+        <View
+            android:id="@+id/category_indicator"
+            android:layout_width="4dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/category_indicator_background"
+            android:backgroundTint="@color/colorAccent" />
+
+        <!-- Основная информация о продукте -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Название продукта на всю ширину -->
+            <TextView
+                android:id="@+id/food_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                android:textColor="@color/textColorPrimary"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Строка с порцией и калориями -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+
+                <!-- Информация о порции -->
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/portion_chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/textColorSecondary"
+                    app:chipBackgroundColor="@color/portion_chip_background"
+                    app:chipStrokeWidth="0dp"
+                    app:chipMinHeight="26dp"
+                    style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                <!-- Спейсер для выравнивания калорий вправо -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Калории и процент -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/food_calories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorAccent" />
+
+                    <TextView
+                        android:id="@+id/calories_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/textColorSecondary"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- БЖУ в виде чипов на всю ширину -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/proteins_chip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/proteins_text_color"
+                    app:chipBackgroundColor="@color/proteins_chip_background"
+                    app:chipStrokeWidth="0dp"
+                    app:chipMinHeight="24dp"
+                    style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/fats_chip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/fats_text_color"
+                    app:chipBackgroundColor="@color/fats_chip_background"
+                    app:chipStrokeWidth="0dp"
+                    app:chipMinHeight="24dp"
+                    style="@style/Widget.MaterialComponents.Chip.Action" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/carbs_chip"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="13sp"
+                    android:textColor="@color/carbs_text_color"
+                    app:chipBackgroundColor="@color/carbs_chip_background"
+                    app:chipStrokeWidth="0dp"
+                    app:chipMinHeight="24dp"
+                    style="@style/Widget.MaterialComponents.Chip.Action" />
+
+            </LinearLayout>
+
+            <!-- Скрытые поля для совместимости -->
+            <TextView
+                android:id="@+id/food_nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/portion_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 

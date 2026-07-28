@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Укажите ваш пол"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Выбор пола с помощью карточек -->
+    <RadioGroup
+        android:id="@+id/rgGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Вариант "Мужчина" -->
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+
+        <!-- Вариант "Женщина" -->
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
+    </RadioGroup>
+
+    <!-- Мужчина -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardMale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/card_stroke_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:checkable="true"
+        app:checkedIcon="@null">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Мужчина"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+                
+            <ImageView
+                android:id="@+id/ivMaleSelected"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_check_circle_orange"
+                android:visibility="gone"
+                android:contentDescription="Выбрано" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Женщина -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardFemale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="@color/card_stroke_color"
+        android:clickable="true"
+        android:focusable="true"
+        android:checkable="true"
+        app:checkedIcon="@null">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+            
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Женщина"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
+                
+            <ImageView
+                android:id="@+id/ivFemaleSelected"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_check_circle_orange"
+                android:visibility="gone"
+                android:contentDescription="Выбрано" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Это поможет нам точнее рассчитать ваши метаболические потребности."
+        android:textSize="14sp"
+        android:textColor="@color/gray_600"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout> 

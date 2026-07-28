@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Уменьшенный отступ сверху для маленьких экранов -->
+    <dimen name="margin_top_adaptive">16dp</dimen>
+    <!-- Уменьшенная высота кнопок для маленьких экранов -->
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_margin">8dp</dimen>
+    <!-- Уменьшенный отступ для линейки веса на маленьких экранах -->
+    <dimen name="weight_ruler_padding">40dp</dimen>
+</resources> 

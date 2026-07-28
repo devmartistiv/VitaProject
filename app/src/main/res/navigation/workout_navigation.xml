@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/workout_navigation"
+    app:startDestination="@id/activeWorkoutFragment">
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.martist.vitamove.history.HistoryFragment"
+        android:label="История"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/activeWorkoutFragment"
+        android:name="com.martist.vitamove.workout.ui.fragments.ActiveWorkoutFragment"
+        android:label="Тренировка"
+        tools:layout="@layout/fragment_active_workout" />
+
+    <fragment
+        android:id="@+id/programsFragment"
+        android:name="com.martist.vitamove.programs.ui.fragment.ProgramsFragment"
+        android:label="Программы тренировок"
+        tools:layout="@layout/fragment_programs">
+
+        <action
+            android:id="@+id/action_programsFragment_to_programDetailsFragment"
+            app:destination="@id/programDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/programDetailsFragment"
+        android:name="com.martist.vitamove.programs.ui.fragment.ProgramDetailsFragment"
+        android:label="Детали программы"
+        tools:layout="@layout/fragment_program_details">
+
+        <argument
+            android:name="program_id"
+            app:argType="string" />
+    </fragment>
+
+    <!-- Actions для навигации между основными вкладками -->
+    <action
+        android:id="@+id/action_global_to_historyFragment"
+        app:destination="@id/historyFragment"
+        app:popUpTo="@id/workout_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_to_activeWorkoutFragment"
+        app:destination="@id/activeWorkoutFragment"
+        app:popUpTo="@id/workout_navigation"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_to_programsFragment"
+        app:destination="@id/programsFragment"
+        app:popUpTo="@id/workout_navigation"
+        app:popUpToInclusive="true" />
+
+</navigation> 

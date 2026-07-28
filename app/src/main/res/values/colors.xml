@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="NutColorBg">#33FFFFFF</color>
+    <color name="colorPrimary">#FF6A00</color>
+    <color name="oldPrimary">#FF8C00</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#FF6A00</color>
+    <color name="colorSecondary">#f2e2ce</color>
+    <color name="colorAccentLight">#E0F2F1</color>
+    <color name="colorAccentDark">#388E3C</color>
+    <color name="colorPrimaryLight">#FF9E58</color>
+    <color name="colorGray">#9E9E9E</color>
+    <color name="colorRed">#F44336</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="home_fragment_card_caloreis">#33FFFFFF</color>
+    <!-- Цвет для статус-бара, соответствующий начальному цвету градиента -->
+    <color name="statusbar_color">#FF7E00</color>
+    <color name="portion_statusbar_color">#E66000</color>
+    <color name="steps_status_bar">#7C4DFF</color>
+    <color name="weight_gradient_start">#5E72E4</color>
+    <color name="weight_gradient_end">#4A8AF4</color>
+    <color name="profile_img">#9E9E9E</color>
+    <color name="gray_900">#212121</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="profile_ic_settings_back">#33FFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_only">#FFFFFF</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="gray">#757575</color>
+    <color name="orange_500">#FF6A00</color>
+    <color name="orange_600">#FB8C00</color>
+    <color name="orange_700">#F57C00</color>
+    <color name="orange_200">#FFCC80</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="green_500">#4CAF50</color>
+    <color name="light_green_500">#8BC34A</color>
+    <color name="yellow_500">#FFEB3B</color>
+    <color name="red_500">#F44336</color>
+    <color name="colorDanger">#F44336</color>
+
+    <!-- Цвет для иконок в обеих темах -->
+    <color name="icon_neutral">#78909C</color>
+
+    <!-- Новые цвета для программ тренировок -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="ripple_color">#DDDDDD</color>
+    <color name="accent_color">#FF6A00</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="level_badge_background">#FF5722</color>
+    <color name="goal_chip_background">#F5F5F5</color>
+    <color name="goal_chip_stroke">#E0E0E0</color>
+    <color name="chip_background">@color/goal_chip_background</color>
+    <color name="rating_star">#FFC107</color>
+
+    <!-- Цвета для уровней сложности -->
+    <color name="level_beginner">#4CAF50</color>
+    <color name="level_intermediate">#FF9800</color>
+    <color name="level_advanced">#F44336</color>
+
+    <!-- Цвета для целей программы -->
+    <color name="goal_strength">#304FFE</color>
+    <color name="goal_muscle">#D500F9</color>
+    <color name="goal_weight_loss">#00BFA5</color>
+    <color name="goal_endurance">#FF6D00</color>
+    <color name="goal_flexibility">#2979FF</color>
+
+    <!-- Цвета для чипов -->
+    <color name="chip_background_orange">#33FF8C00</color>
+
+    <!-- Общие цвета интерфейса -->
+    <color name="background_color">#F5F5F5</color>
+    <color name="divider_color">#E0E0E0</color>
+    <color name="section_title">#424242</color>
+
+    <!-- Цвета для статусов тренировок -->
+    <color name="status_planned">#3F51B5</color>
+    <color name="status_scheduled">#3F51B5</color>
+    <color name="status_in_progress">#FF9800</color>
+    <color name="status_completed">#4CAF50</color>
+    <color name="status_missed">#F44336</color>
+
+    <!-- Цвета для экрана тренировок -->
+    <color name="accent_color_light">#E8F5E9</color>
+
+    <!-- Цвета темы -->
+    <color name="primary_color">#4CAF50</color>
+
+    <!-- Цвета для упражнений -->
+    <color name="success_color">#4CAF50</color>
+    <color name="error_color">#F44336</color>
+    <color name="completed_color">#8BC34A</color>
+    <color name="input_background">#F9F9F9</color>
+
+    <!-- Оттенки серого -->
+    <color name="gray_50">#FAFAFA</color>
+
+    <!-- Цвета для текстовых полей -->
+    <color name="text_input_hint_color">#9E9E9E</color>
+
+    <color name="textColorPrimary">@android:color/black</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="textColorTertiary">#616161</color>
+    <color name="colorBackground">@android:color/white</color>
+    <color name="colorBackgroundLight">#F5F5F5</color>
+    <color name="colorSurface">@android:color/white</color>
+    <color name="voice_chip">#BDBDBD</color>
+    <color name="colorOnSurface">@android:color/black</color>
+
+    <color name="weight_note">#F5F5F5</color>
+
+    <!-- Цвет фона карточек БЖУ -->
+    <color name="card_bju_background">#EFEFEF</color>
+    <color name="card_bju_text">@android:color/black</color>
+
+    <!-- Цвета для поля ввода -->
+    <color name="editTextBackground">#FFFFFF</color>
+    <color name="editTextBorder">#CCCCCC</color>
+
+    <!-- Цвет для фона подходов -->
+    <color name="exercise_set_background">@color/gray_200</color>
+    <!-- Цвет для фона неактивных подходов -->
+    <color name="exercise_set_background_light">#F9F9F9</color>
+
+    <!-- Фоны информационных карточек -->
+    <color name="cardio_info_background">#1FFFA500</color>
+    <color name="cardio_summary_background">#1F2E2E2E</color>
+
+    <!-- Цвета для фона полей ввода -->
+    <color name="edit_text_background_color">#FFFFFF</color>
+    <color name="edit_text_stroke_color">#DDDDDD</color>
+    <color name="edit_text_background_inactive_color">#F0F0F0</color>
+    <color name="edit_text_stroke_inactive_color">#E0E0E0</color>
+
+    <!-- Цвет для фона кружка неактивного подхода -->
+    <color name="circle_background_gray">#BBBBBB</color>
+
+    <!-- Цвета для профиля -->
+    <color name="profile_card_background_light">#F0F0F0</color>
+    <color name="profile_card_background_dark">#1E1E1E</color>
+    <color name="profile_stats_card_light">#FFFFFF</color>
+    <color name="profile_stats_card_dark">#2A2A2A</color>
+    <color name="profile_text_primary_light">#212121</color>
+    <color name="profile_text_primary_dark">#FFFFFF</color>
+    <color name="profile_text_secondary_light">#757575</color>
+    <color name="profile_text_secondary_dark">#BDBDBD</color>
+    <color name="profile_value_text_light">#FF6A00</color>
+    <color name="profile_value_text_dark">#FFA000</color>
+    <color name="profile_card_text_light">#212121</color>
+    <color name="profile_card_text_dark">#FFFFFF</color>
+
+    <!-- Селекторы цветов для адаптации к теме -->
+    <color name="profile_card_background">@color/profile_card_background_light</color>
+    <color name="profile_stats_card">@color/profile_stats_card_light</color>
+    <color name="profile_text_primary">@color/profile_text_primary_light</color>
+    <color name="profile_text_secondary">@color/profile_text_secondary_light</color>
+    <color name="profile_value_text">@color/profile_value_text_light</color>
+    <color name="profile_card_text">@color/profile_card_text_light</color>
+
+    <!-- Цвет для карточки с датой в деталях тренировки -->
+    <color name="details_date_card_background">@color/gray_100</color>
+
+    <!-- Дополнительные цвета для визуализации процентов нутриентов -->
+    <color name="colorSuccess">#4CAF50</color>
+    <color name="colorWarning">#FFA726</color>
+
+    <!-- Цвета для водного баланса -->
+    <color name="water_blue">#2196F3</color>
+    <color name="water_blue_light">#64B5F6</color>
+    <color name="water_blue_dark">#1976D2</color>
+    <color name="water_button_bg">#F1F9FF</color>
+    <color name="progress_track_color">#E3F2FD</color>
+
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#9E9E9E</color>
+
+    <color name="date_panel_background">#15FF6A00</color>
+    <color name="progress_track_color_light">#E0F2F1</color>
+
+    <!-- Цвета для экрана ассистента -->
+    <color name="assistant_background">#FFFFFF</color>
+    <color name="assistant_input_background">#F9F9F9</color>
+    <color name="assistant_message_background">#FFF3E0</color>
+    <color name="assistant_text_color">#212121</color>
+    <color name="assistant_hint_color">#9E9E9E</color>
+
+    <color name="colorGrey">#757575</color>
+
+    <!-- Цвета для TabLayout -->
+    <color name="tab_layout_background">@color/gray_100</color>
+    <color name="tab_indicator_color">@color/orange_500</color>
+    <color name="tab_selected_text_color">@color/white</color>
+    <color name="tab_unselected_text_color">@color/gray_600</color>
+
+    <color name="overlay_color">#00000000</color>
+
+    <!-- Цвета для улучшенного интерфейса выбора порции -->
+    <color name="portion_input_background">#F8F9FA</color>
+    <color name="portion_input_border">#E9ECEF</color>
+    <color name="portion_info_background">#F1F8E9</color>
+    <color name="portion_info_border">#C8E6C9</color>
+
+    <!-- Цвета для улучшенного отображения продуктов в приемах пищи -->
+    <color name="portion_chip_background">#F5F5F5</color>
+
+    <!-- Цвета для чипов БЖУ -->
+    <color name="proteins_chip_background">#E8F5E8</color>
+    <color name="proteins_text_color">#2E7D32</color>
+
+    <color name="fats_chip_background">#FFF3E0</color>
+    <color name="fats_text_color">#F57C00</color>
+
+    <color name="carbs_chip_background">#E3F2FD</color>
+    <color name="carbs_text_color">#1976D2</color>
+
+    <!-- Цвета для селектора периодов -->
+    <color name="period_selector_background">#F8F9FA</color>
+    <color name="period_selector_border">#E9ECEF</color>
+    <color name="period_tab_pressed">#FFF3E0</color>
+
+    <!-- Цвета для кнопки Google -->
+    <color name="google_button_background">#FFFFFF</color>
+    <color name="google_button_text">#757575</color>
+    <color name="google_button_stroke">#DADCE0</color>
+    <color name="google_icon_tint">#4285F4</color>
+
+    <!-- Адаптивные цвета для экрана заметок -->
+    <color name="notes_text_primary">@color/gray_800</color>
+    <color name="notes_text_secondary">@color/gray_600</color>
+    <color name="notes_text_hint">@color/gray_500</color>
+    <color name="notes_icon_tint">@color/gray_600</color>
+    <color name="notes_card_background">@color/white</color>
+    <color name="notes_divider">@color/gray_300</color>
+    <color name="notes_empty_state_icon">@color/gray_400</color>
+    <color name="notes_empty_state_text">@color/gray_600</color>
+
+    <!-- Цвета для экрана итогов тренировки -->
+    <color name="background_gradient_start">#F0F4F8</color>
+    <color name="background_gradient_end">#E8EEF3</color>
+    <color name="stat_time_color">#3F51B5</color>
+    <color name="stat_tonnage_color">#FF9800</color>
+    <color name="stat_calories_color">#F44336</color>
+    <color name="primary">#FF6A00</color>
+
+    <!-- Цвета для графиков -->
+    <color name="chart_grid_color">#E0E0E0</color>
+    <color name="chart_text_color">#757575</color>
+    
+    <!-- Цвет стрелочек календаря -->
+    <color name="calendar_arrow_color">#424242</color>
+
+    <color name="backgroundColorProductCard">#F4F4F6</color>
+    <color name="background_color_to_create_program_week">@color/white</color>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/textColorPrimary"
+        android:text="Редактирование значения"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Поле для веса -->
+    <LinearLayout
+        android:id="@+id/weight_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+        
+        <TextView
+            android:id="@+id/weight_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вес (кг)"
+            android:textColor="@color/textColorSecondary"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/weight_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="Введите вес в кг"
+            android:textColor="@color/textColorPrimary"/>
+    </LinearLayout>
+
+    <!-- Поле для повторений -->
+    <LinearLayout
+        android:id="@+id/reps_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Повторения"
+            android:textColor="@color/textColorSecondary"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/reps_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Введите количество повторений"
+            android:textColor="@color/textColorPrimary"/>
+    </LinearLayout>
+
+    <!-- Кнопки -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отмена"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сохранить"
+            style="@style/Widget.MaterialComponents.Button"/>
+    </LinearLayout>
+</LinearLayout> 

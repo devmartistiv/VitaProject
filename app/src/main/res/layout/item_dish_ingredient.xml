@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:strokeWidth="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
+
+        <!-- Информация об ингредиенте -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Название продукта -->
+            <TextView
+                android:id="@+id/ingredient_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Название продукта"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColorSecondary"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Количество и калории -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp">
+
+                <TextView
+                    android:id="@+id/ingredient_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="100 грамм"
+                    android:textSize="12sp"
+                    android:textColor="@color/textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/ingredient_calories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200 ккал"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Кнопка удаления -->
+        <ImageButton
+            android:id="@+id/btn_delete_ingredient"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Удалить ингредиент"
+            app:tint="@color/error_color" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:strokeColor="?attr/dividerColor"
+    app:strokeWidth="0.5dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:rippleColor="@color/ripple_color"
+    android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Верхняя часть с основной информацией -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <!-- Номер дня -->
+            <TextView
+                android:id="@+id/day_number"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_circle_accent"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <!-- Информация о дне -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/day_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textStyle="bold"
+                    tools:text="День 1: Верхняя часть тела" />
+
+                <TextView
+                    android:id="@+id/focus_area_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:text="Сила, Плечи, Грудь" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <!-- Количество упражнений -->
+                    <TextView
+                        android:id="@+id/exercise_count_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="4dp"
+                        android:gravity="center_vertical"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"
+                        app:drawableStartCompat="@drawable/ic_fitness_center"
+                        app:drawableTint="@color/orange_500"
+                        tools:text="6 упражнений" />
+
+                    <!-- Длительность -->
+                    <TextView
+                        android:id="@+id/duration_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:drawablePadding="4dp"
+                        android:gravity="center_vertical"
+                        android:textAppearance="?attr/textAppearanceCaption"
+                        android:textColor="?android:attr/textColorSecondary"
+                        app:drawableStartCompat="@drawable/ic_access_time"
+                        app:drawableTint="@color/orange_500"
+                        tools:text="45 минут" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Статус дня -->
+            <ImageView
+                android:id="@+id/day_status_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="Статус дня"
+                app:tint="@color/orange_500"
+                tools:src="@drawable/ic_check_circle" />
+
+        </LinearLayout>
+
+        <!-- Индикатор завершенности (если день завершен) -->
+        <View
+            android:id="@+id/completed_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/orange_500"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 

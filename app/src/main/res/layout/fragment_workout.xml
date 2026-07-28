@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Верхний блок с кнопками и заголовком -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="24dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/analytics_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_analytics_workout"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/accent_color"
+            app:cornerRadius="24dp"
+            android:backgroundTint="@color/card_background"
+            android:contentDescription="Аналитика" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="12dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            android:backgroundTint="@color/card_background">
+
+            <TextView
+                android:id="@+id/app_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Vitamove"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/accent_color"
+                android:gravity="center"
+                android:padding="6dp"
+                android:letterSpacing="0.05" />
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/settings_button"
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_settings"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/accent_color"
+            app:cornerRadius="24dp"
+            android:backgroundTint="@color/card_background"
+            android:contentDescription="Настройки" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="23dp"
+        app:cardElevation="2dp"
+        app:cardBackgroundColor="@color/tab_layout_background">
+
+        <com.martist.vitamove.core.ui.views.AnimatedTabLayout
+            android:id="@+id/workout_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/card_background"
+            app:tabTextColor="@drawable/tab_text_selector"
+            app:tabTextAppearance="@style/WorkoutTabTextAppearance"
+            app:tabIndicator="@null"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabMinWidth="0dp"
+            app:tabMaxWidth="1000dp"
+            app:tabPaddingStart="0dp"
+            app:tabPaddingEnd="0dp"
+            app:tabPaddingTop="0dp"
+            app:tabPaddingBottom="0dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingHorizontal="0dp"
+            android:paddingVertical="0dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/workout_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_active_workout" />
+
+</LinearLayout>

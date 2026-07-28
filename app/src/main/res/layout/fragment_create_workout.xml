@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".workout.ui.fragments.CreateWorkoutFragment">
+
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/create_program_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/subtitle_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/create_program_subtitle"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_text_view" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/form_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitle_text_view">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Название программы -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/program_name_hint"
+                app:boxBackgroundMode="outline"
+                app:errorEnabled="true"
+                app:boxStrokeColor="@color/colorAccent"
+                app:boxStrokeWidth="2dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/input_background"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Уровень сложности"
+                android:textColorHint="@color/textColorSecondary"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:boxStrokeWidth="2dp"
+                app:endIconTint="@color/colorAccent"
+                app:hintTextAppearance="@style/HintTextAppearance">
+
+                <AutoCompleteTextView
+                    android:id="@+id/level_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:dropDownHeight="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:paddingVertical="16dp"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Количество недель"
+
+                android:textColorHint="@color/textColorSecondary"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:boxStrokeWidth="2dp"
+                app:endIconTint="@color/colorAccent"
+                app:hintTextAppearance="@style/HintTextAppearance">
+
+                <AutoCompleteTextView
+                    android:id="@+id/weeks_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:dropDownHeight="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:paddingVertical="16dp"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Дней в неделю"
+
+                android:textColorHint="@color/textColorSecondary"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxStrokeColor="@color/colorAccent"
+                app:boxStrokeWidth="2dp"
+                app:endIconTint="@color/colorAccent"
+                app:hintTextAppearance="@style/HintTextAppearance">
+
+                <AutoCompleteTextView
+                    android:id="@+id/days_per_week_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:dropDownHeight="wrap_content"
+                    android:focusable="false"
+                    android:inputType="none"
+                    android:paddingVertical="16dp"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next_button"
+        style="@style/Widget.VitaMove.Button"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/next_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/form_card" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/back"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout> 

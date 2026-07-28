@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fitsSystemWindows="true"
+    tools:context=".weight.ui.WeightHistoryActivity">
+
+    <!-- Градиентный фон верхней части экрана -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@drawable/weight_card_gradient" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:clipToPadding="false">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="80dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <!-- Заголовок и кнопка назад -->
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:background="@drawable/circle_icon_background"
+                    android:padding="12dp"
+                    app:tint="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="Назад" />
+
+                <TextView
+                    android:id="@+id/title_weight_history"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Контроль веса"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintStart_toEndOf="@+id/btn_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btn_back"
+                    app:layout_constraintBottom_toBottomOf="@+id/btn_back" />
+
+                <!-- Индикатор загрузки и статус синхронизации -->
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="8dp"
+                    android:indeterminateTint="@android:color/white"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+
+                <TextView
+                    android:id="@+id/sync_status_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@+id/progress_bar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/progress_bar"
+                    app:layout_constraintBottom_toBottomOf="@+id/progress_bar" />
+
+                <!-- Карточка с текущим весом -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_current_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/progress_bar">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp">
+
+                        <TextView
+
+                            android:id="@+id/current_weight_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Текущий вес"
+                            android:textSize="16sp"
+                            android:alpha="0.7"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/current_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="99.0 кг"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/weight_gradient_start"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/current_weight_label" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_update_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Обновить"
+                            android:backgroundTint="@color/weight_gradient_end"
+                            app:cornerRadius="20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@+id/current_weight" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Сводка о весе (упрощенная) -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_weight_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/card_current_weight">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp">
+
+                        <TextView
+
+                            android:id="@+id/summary_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Сводка"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!-- Начальный вес -->
+                        <TextView
+                            android:id="@+id/initial_weight_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Начальный вес"
+                            android:textSize="14sp"
+                            android:alpha="0.7"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_label" />
+
+                        <TextView
+                            android:id="@+id/initial_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="99.0 кг"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/initial_weight_label" />
+
+                        <!-- Целевой вес -->
+                        <TextView
+                            android:id="@+id/target_weight_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Целевой вес"
+                            android:textSize="14sp"
+                            android:alpha="0.7"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/initial_weight" />
+
+                        <TextView
+                            android:id="@+id/target_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="89.0 кг"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/target_weight_label" />
+
+                        <View
+                            android:id="@+id/divider"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:background="?android:attr/listDivider"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/initial_weight_label"
+                            app:layout_constraintBottom_toBottomOf="@+id/weight_remaining" />
+
+                        <!-- Сброшено -->
+                        <TextView
+                            android:id="@+id/weight_lost_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Сброшено"
+                            android:textSize="14sp"
+                            android:alpha="0.7"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintStart_toStartOf="@+id/divider"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/summary_label"
+                            app:layout_constraintHorizontal_bias="0.6" />
+
+                        <TextView
+                            android:id="@+id/weight_lost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0 кг"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/green_500"
+                            app:layout_constraintStart_toStartOf="@+id/weight_lost_label"
+                            app:layout_constraintEnd_toEndOf="@+id/weight_lost_label"
+                            app:layout_constraintTop_toBottomOf="@+id/weight_lost_label" />
+
+                        <!-- Осталось -->
+                        <TextView
+                            android:id="@+id/weight_remaining_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Осталось"
+                            android:textSize="14sp"
+                            android:alpha="0.7"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintStart_toStartOf="@+id/weight_lost_label"
+                            app:layout_constraintEnd_toEndOf="@+id/weight_lost_label"
+                            app:layout_constraintTop_toBottomOf="@+id/weight_lost" />
+
+                        <TextView
+                            android:id="@+id/weight_remaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10.0 кг"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="@+id/weight_remaining_label"
+                            app:layout_constraintEnd_toEndOf="@+id/weight_remaining_label"
+                            app:layout_constraintTop_toBottomOf="@+id/weight_remaining_label" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- График изменения веса -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_weight_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/card_weight_summary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="График изменения веса"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="16dp" />
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/weight_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Список истории веса -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_weight_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/card_weight_chart">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="История изменения веса"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="16dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/weight_history_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

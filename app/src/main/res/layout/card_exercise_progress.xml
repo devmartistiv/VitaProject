@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/exercise_progress_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/card_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Прогресс упражнения"
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отслеживайте свой прогресс в выбранном упражнении"
+            android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Выбор упражнения -->
+        <LinearLayout
+            android:id="@+id/exercise_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_exercise"
+                android:tint="@color/colorAccent"
+                android:contentDescription="Выбрать упражнение"/>
+
+            <TextView
+                android:id="@+id/selected_exercise_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Выберите упражнение"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:layout_marginStart="8dp"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_arrow_right"
+                app:tint="@color/textColorSecondary"
+                android:contentDescription="Выбрать"/>
+        </LinearLayout>
+
+        <!-- Показ информации о прогрессе -->
+        <LinearLayout
+            android:id="@+id/progress_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Начальный вес/повторения -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Начальный:"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/initial_value_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 кг × 0"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="end"/>
+                
+                <ImageButton
+                    android:id="@+id/edit_initial_value_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_edit"
+                    android:tint="@color/colorAccent"
+                    android:contentDescription="Редактировать начальное значение"/>
+            </LinearLayout>
+
+            <!-- Текущий вес/повторения -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Текущий:"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/current_value_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 кг × 0"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="end"/>
+                
+                <ImageButton
+                    android:id="@+id/edit_current_value_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_edit"
+                    android:tint="@color/colorAccent"
+                    android:contentDescription="Редактировать текущее значение"/>
+            </LinearLayout>
+
+            <!-- Целевой вес/повторения -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Цель:"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/target_value_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    android:text="77.0 кг" />
+                
+                <ImageButton
+                    android:id="@+id/edit_target_value_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_edit"
+                    android:tint="@color/colorAccent"
+                    android:contentDescription="Редактировать целевое значение"/>
+            </LinearLayout>
+            
+            <!-- Прогресс-бар достижения цели -->
+            <ProgressBar
+                android:id="@+id/goal_progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:progress="62"
+                android:max="100"
+                android:progressTint="@color/colorPrimary"
+                android:progressBackgroundTint="@color/textColorSecondary"
+                android:alpha="0.9"/>
+
+            <!-- Текстовое отображение прогресса достижения цели -->
+            <TextView
+                android:id="@+id/progress_percentage_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="62% от цели"
+                android:textSize="12sp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginBottom="8dp"/>
+            
+            <!-- График прогресса -->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/progress_chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"/>
+                
+            <!-- Переключатель между весом и повторениями в форме таблетки -->
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/metric_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                app:checkedButton="@id/weight_toggle">
+                
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/weight_toggle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="ВЕС"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingHorizontal="16dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:textSize="14sp"
+                    app:cornerRadius="20dp"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="1dp"
+                    android:textColor="@color/toggle_button_text_selector"
+                    app:backgroundTint="@color/toggle_button_background_selector" />
+                    
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reps_toggle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="ПОВТОРЕНИЯ"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:paddingHorizontal="16dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:textSize="14sp"
+                    app:cornerRadius="20dp"
+                    app:strokeColor="@color/colorPrimary"
+                    app:strokeWidth="1dp"
+                    android:textColor="@color/toggle_button_text_selector"
+                    app:backgroundTint="@color/toggle_button_background_selector" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView> 

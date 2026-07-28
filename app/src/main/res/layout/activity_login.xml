@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/colorBackground"
+        android:paddingBottom="16dp">
+
+        <!-- Логотип VitaMove с тенью -->
+        <TextView
+            android:id="@+id/login_appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_adaptive"
+            android:layout_marginHorizontal="24dp"
+            android:text="Войти"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="30sp"
+
+            android:fontFamily="@font/montserrat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Карточка для изображения с эффектом тени -->
+        <!--        <androidx.cardview.widget.CardView-->
+        <!--            android:id="@+id/image_card"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_marginTop="16dp"-->
+        <!--            android:layout_marginHorizontal="40dp"-->
+        <!--            app:cardCornerRadius="1000dp"-->
+        <!--            app:cardElevation="8dp"-->
+        <!--            app:layout_constraintDimensionRatio="1:1"-->
+        <!--            app:layout_constraintWidth_percent="0.6"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/login_appname">-->
+
+        <!--            <ImageView-->
+        <!--                android:id="@+id/login_image"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:scaleType="centerCrop"-->
+        <!--                android:src="@drawable/login_image" />-->
+        <!--        </androidx.cardview.widget.CardView>-->
+
+        <!-- Карточка контейнер для полей ввода -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/inputs_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+      
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+
+                <!-- Поле для Email с иконкой -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_layout"
+                    style="@style/Widget.VitaMove.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Email"
+                    app:startIconDrawable="@drawable/ic_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Поле для пароля с иконкой -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/password_layout"
+                    style="@style/Widget.VitaMove.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Пароль"
+                    app:startIconDrawable="@drawable/ic_lock"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/icon_neutral">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Кнопка входа с улучшенным дизайном -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:paddingVertical="14dp"
+            android:text="Войти"
+            style="@style/Widget.VitaMove.Button.Login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputs_card" />
+
+        <!-- Разделитель с текстом "или" -->
+        <LinearLayout
+            android:id="@+id/divider_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login_button">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/divider_color" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="или"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="@color/divider_color" />
+        </LinearLayout>
+
+        <!-- Кнопка входа через Google -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/google_login_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:paddingVertical="14dp"
+            android:text="Войти через Google"
+            android:textColor="@color/google_button_text"
+            android:backgroundTint="@color/card_background"
+            app:icon="@drawable/ic_google"
+            app:iconGravity="textStart"
+            app:iconTintMode="multiply"
+            app:iconSize="20dp"
+            app:cornerRadius="16dp"
+
+            app:strokeColor="@color/google_button_stroke"
+            app:strokeWidth="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_layout" />
+
+        <!-- Ссылка на регистрацию -->
+        <TextView
+            android:id="@+id/register_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Нет аккаунта? Регистрация"
+            android:textColor="@color/orange_500"
+            android:textSize="14sp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/google_login_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

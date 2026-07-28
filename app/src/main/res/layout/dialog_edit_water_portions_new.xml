@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Заголовок с иконкой -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_water"
+            app:tint="@color/water_blue"
+            android:layout_marginEnd="12dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Изменить порции воды"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Изменить объем порций"
+        android:textSize="14sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Порция 1 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_portion_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:boxStrokeColor="@color/water_blue"
+        android:textColorHint="@color/water_blue"
+        app:hintTextColor="@color/water_blue"
+        app:startIconDrawable="@drawable/ic_water_drop"
+        app:startIconTint="@color/water_blue"
+        app:suffixText="мл"
+        app:suffixTextColor="@color/textColorSecondary"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_portion_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Порция 1"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Порция 2 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_portion_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textColorHint="@color/water_blue"
+        app:boxStrokeColor="@color/water_blue"
+        app:hintTextColor="@color/water_blue"
+        app:startIconDrawable="@drawable/ic_water_drop"
+        app:startIconTint="@color/water_blue"
+        app:suffixText="мл"
+        app:suffixTextColor="@color/textColorSecondary"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_portion_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Порция 2"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Подсказка -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💡 Рекомендуемые объемы: 200 мл и 500 мл"
+        android:textSize="12sp"
+        android:textColor="@color/textColorSecondary"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/tip_background"
+        android:padding="12dp" />
+</LinearLayout> 

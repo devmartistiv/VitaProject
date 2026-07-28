@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Фрагмент с нутриентами для включения в основной layout -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Витамины -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Витамины"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Витамин A -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_a"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин A (мкг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B1 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b1"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B1 (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B2 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b2"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B2 (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B3 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b3"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B3 (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B5 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b5"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B5 (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B6 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b6"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B6 (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B9 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b9"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B9 (мкг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин B12 -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_b12"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин B12 (мкг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_b12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин C -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_c"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин C (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин D -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_d"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин D (мкг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_d"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин E -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_e"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Витамин E (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_e"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Витамин K -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vitamin_k"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="Витамин K (мкг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_vitamin_k"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Минералы -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Минералы"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Кальций -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_calcium"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Кальций (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_calcium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Железо -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_iron"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Железо (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_iron"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Магний -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_magnesium"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Магний (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_magnesium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Фосфор -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_phosphorus"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Фосфор (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phosphorus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Калий -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_potassium"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Калий (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_potassium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Натрий -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_sodium"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Натрий (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_sodium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Цинк -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_zinc"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="Цинк (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_zinc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Дополнительно -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дополнительные параметры"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Холестерин -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_cholesterol"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Холестерин (мг)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_cholesterol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Насыщенные жиры -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_saturated_fats"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Насыщенные жиры (г)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_saturated_fats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Трансжиры -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_trans_fats"
+        style="@style/Widget.VitaMove.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="Трансжиры (г)">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_trans_fats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

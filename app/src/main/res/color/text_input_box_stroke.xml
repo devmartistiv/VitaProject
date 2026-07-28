@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Цвет обводки при ошибке -->
+    <item android:color="#B00020" android:state_activated="true"/>
+    <!-- Цвет обводки в фокусе -->
+    <item android:color="@color/orange_500" android:state_focused="true"/>
+    <!-- Цвет обводки при наведении -->
+    <item android:color="@color/orange_500" android:state_hovered="true"/>
+    <!-- Цвет обводки по умолчанию -->
+    <item android:color="#CCCCCC"/>
+</selector> 

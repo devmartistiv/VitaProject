@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    app:behavior_peekHeight="300dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Полоска для drag-and-drop -->
+        <View
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@color/gray_400"/>
+
+        <!-- Заголовок -->
+        <TextView
+            android:id="@+id/bottom_sheet_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="Научная Full Body Программа"/>
+
+        <!-- Информация о программе -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_fitness"
+                android:tint="@color/colorPrimary"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Тип программы"/>
+                
+            <TextView
+                android:id="@+id/program_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                tools:text="Тип: Full Body"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/colorPrimary"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Продолжительность"/>
+                
+            <TextView
+                android:id="@+id/bottom_sheet_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                tools:text="Продолжительность: 12 недель, 3 дня в неделю"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_level"
+                android:tint="@color/colorPrimary"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Уровень сложности"/>
+                
+            <TextView
+                android:id="@+id/bottom_sheet_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                tools:text="Уровень: Средний"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_goal"
+                android:tint="@color/colorPrimary"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Категория программы"/>
+                
+            <TextView
+                android:id="@+id/program_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                tools:text="Категория: Наращивание мышечной массы"/>
+        </LinearLayout>
+
+        <!-- Разделитель -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/divider_color"/>
+
+        <!-- Описание программы -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Описание программы"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/program_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.2"
+            tools:text="Эта научно обоснованная программа направлена на равномерное развитие всех мышечных групп с использованием многосуставных упражнений. Программа разработана на основе последних исследований в области спортивной науки для максимальной эффективности тренировок."/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView> 

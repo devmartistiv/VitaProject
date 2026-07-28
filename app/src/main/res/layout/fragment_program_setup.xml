@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Заголовок -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Настройка программы"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Информация о выбранной программе -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/program_info_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        
+                        <TextView
+                            android:id="@+id/program_name"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            tools:text="Научная Full Body Программа" />
+                            
+                        <ImageButton
+                            android:id="@+id/btn_program_info"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_info"
+                            android:contentDescription="Информация о программе"
+                            android:tint="@color/gray_500"
+                            android:layout_gravity="center_vertical"
+                            android:alpha="0.7"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/program_duration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        tools:text="12 недель, 3 дня в неделю" />
+
+                    <TextView
+                        android:id="@+id/program_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        tools:text="Уровень: средний" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Выбор даты начала -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Дата начала"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/start_date_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    tools:text="15 марта 2024" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_change_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Изменить" />
+            </LinearLayout>
+
+            <!-- Настройка дней недели -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Дни недели для тренировок"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/days_selection_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/gray_600"
+                android:textSize="14sp"
+                android:gravity="center"
+                tools:text="Выберите 3 дня для тренировок" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/days_of_week_chip_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:chipSpacingHorizontal="5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                app:singleLine="true"
+                app:singleSelection="false">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_monday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="ПН"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_tuesday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="ВТ"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_wednesday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="СР"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_thursday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="ЧТ"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_friday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="ПТ"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_saturday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="СБ"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_sunday"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:text="ВС"
+                    android:textColor="@color/chip_text_color"
+                    app:chipBackgroundColor="@color/chip_state_color"
+                    app:chipStrokeWidth="1dp"
+                    app:chipStrokeColor="@color/colorPrimary"
+                    style="@style/CircularChipStyle"/>
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Настройка уведомлений -->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="Напоминания о тренировках"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Напоминать о тренировках" />-->
+
+<!--                <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--                    android:id="@+id/switch_reminders"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:checked="true" />-->
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/reminder_time_container"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Время напоминания" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/reminder_time_text"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_vertical"-->
+<!--                    android:layout_marginEnd="8dp"-->
+<!--                    android:textSize="16sp"-->
+<!--                    tools:text="09:00" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/btn_change_time"-->
+<!--                    style="@style/Widget.MaterialComponents.Button.TextButton"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:minWidth="0dp"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:text="Изменить"-->
+<!--                    android:textSize="12sp" />-->
+<!--            </LinearLayout>-->
+
+            <!-- Настройка прогрессии нагрузки -->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:text="Прогрессия нагрузки"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <RadioGroup-->
+<!--                android:id="@+id/progression_radio_group"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="16dp">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radio_auto_progression"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:checked="true"-->
+<!--                    android:text="Автоматическая прогрессия (рекомендуется)" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radio_manual_progression"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Ручная настройка" />-->
+<!--            </RadioGroup>-->
+
+            <!-- Кнопки -->
+            <LinearLayout
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:orientation="vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_start_program"
+                    style="@style/Widget.VitaMove.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/start_program" />
+
+                <com.google.android.material.button.MaterialButton
+
+                    android:layout_gravity="bottom"
+                    android:id="@+id/btn_cancel"
+                    style="@style/Widget.VitaMove.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Отмена" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Индикатор загрузки -->
+    <FrameLayout
+        android:id="@+id/loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout> 

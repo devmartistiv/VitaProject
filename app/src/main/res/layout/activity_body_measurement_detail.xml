@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <!-- AppBar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:elevation="4dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Замер"
+            app:titleTextColor="@android:color/white"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Основной контент -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:paddingBottom="100dp">
+
+            <!-- Шапка с иконкой и названием -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:id="@+id/bodyPartIcon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_biceps"
+                    android:layout_marginEnd="16dp"
+                    app:tint="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/bodyPartTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Бицепс левый"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/profile_text_primary" />
+            </LinearLayout>
+
+            <!-- Карточка с текущим значением -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/currentValueCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/profile_stats_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Текущий размер"
+                        android:textSize="16sp"
+                        android:textColor="@color/profile_text_secondary"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/currentValueText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="32.5 см"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:id="@+id/lastMeasurementText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Последний замер: 15 января 2025"
+                        android:textSize="14sp"
+                        android:textColor="@color/profile_text_secondary" />
+
+                    <!-- Контейнер тренда -->
+                    <LinearLayout
+                        android:id="@+id/trendContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/rounded_background_change"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/trendIcon"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_arrow_up"
+                            app:tint="#4CAF50"
+                            android:layout_marginEnd="6dp" />
+
+                        <TextView
+                            android:id="@+id/changeValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+0.5 см"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#4CAF50"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:id="@+id/trendDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Увеличение с предыдущего замера"
+                            android:textSize="12sp"
+                            android:textColor="@color/profile_text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- График истории замеров -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/chartCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/profile_stats_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_analytics"
+                            app:tint="@color/colorPrimary"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="График прогресса"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/profile_text_primary" />
+                    </LinearLayout>
+
+                    <!-- График MPAndroidChart -->
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/measurementChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp" />
+
+                    <!-- Сообщение если недостаточно данных -->
+                    <LinearLayout
+                        android:id="@+id/emptyChartContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_analytics"
+                            app:tint="@color/profile_text_secondary"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Недостаточно данных"
+                            android:textSize="16sp"
+                            android:textColor="@color/profile_text_secondary"
+                            android:layout_marginBottom="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Добавьте хотя бы 2 замера для отображения графика"
+                            android:textSize="14sp"
+                            android:textColor="@color/profile_text_secondary"
+                            android:gravity="center"
+                            android:paddingHorizontal="24dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Кнопка добавления нового замера -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addMeasurementButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Добавить новый замер"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/colorPrimary"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_add"
+                app:iconGravity="textStart"
+                app:iconTint="@android:color/white"
+                android:layout_marginBottom="24dp"
+                style="@style/Widget.VitaMove.Button" />
+
+            <!-- История замеров -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/profile_stats_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_history"
+                            app:tint="@color/colorPrimary"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="История замеров"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/profile_text_primary" />
+                    </LinearLayout>
+
+                    <!-- RecyclerView для истории -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/historyRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:overScrollMode="never" />
+
+                    <!-- Сообщение если нет истории -->
+                    <LinearLayout
+                        android:id="@+id/emptyHistoryContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="32dp"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/ic_analytics"
+                            app:tint="@color/profile_text_secondary"
+                            android:layout_marginBottom="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Пока нет истории замеров"
+                            android:textSize="16sp"
+                            android:textColor="@color/profile_text_secondary"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Добавьте первый замер, чтобы начать отслеживать изменения"
+                            android:textSize="14sp"
+                            android:textColor="@color/profile_text_secondary"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

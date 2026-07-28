@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!-- Разрешения для голосового ввода -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Разрешения для уведомлений -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Функции устройства -->
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name=".VitaMoveApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VitaMove"
+        android:usesCleartextTraffic="true">
+
+        <!-- FileProvider для работы с камерой -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".core.ui.MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/Theme.VitaMove.splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".nutrition.ui.FoodSelectionActivity"
+            android:label="Выбор продуктов"
+            android:theme="@style/Theme.VitaMove"
+            android:parentActivityName=".core.ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nutrition.ui.CreateProductActivity"
+            android:label="Создать продукт"
+            android:theme="@style/Theme.VitaMove"
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".nutrition.ui.FoodSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nutrition.ui.AddNutrientsActivity"
+            android:label="Добавить витамины"
+            android:theme="@style/Theme.VitaMove"
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".nutrition.ui.FoodSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nutrition.ui.DishConstructorActivity"
+            android:label="Конструктор блюда"
+            android:theme="@style/Theme.VitaMove"
+            android:parentActivityName=".nutrition.ui.FoodSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nutrition.ui.IngredientSelectionActivity"
+            android:label="Выбор ингредиентов"
+            android:theme="@style/Theme.VitaMove"
+            android:parentActivityName=".nutrition.ui.DishConstructorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".nutrition.ui.BarcodeScannerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".auth.RegisterActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.VitaMove.NoActionBar" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.VitaMove.NoActionBar" />
+        <activity
+            android:name=".nutrition.ui.PortionSizeActivity"
+            android:theme="@style/Theme.VitaMove" />
+        <activity
+            android:name=".auth.OnboardingActivity"
+            android:label="Тестовая загрузка"
+            android:exported="false"
+            android:theme="@style/Theme.VitaMove.NoActionBar" />
+        <activity
+            android:name=".auth.SurveyActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VitaMove.NoActionBar" />
+        <activity
+            android:name=".user.SettingsActivity"
+
+
+            android:label="Настройки"
+            android:exported="false" />
+        <activity
+            android:name=".analytics.ReportDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VitaMove" />
+
+
+        <activity
+            android:name=".exercise.ui.ExerciseSearchActivity"
+            android:label="Поиск упражнений"
+            android:theme="@style/Theme.VitaMove.NoActionBar.WatermarkHider" />
+        <activity
+            android:name=".exercise.ui.ExerciseSettingsActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:label=""
+            android:theme="@style/Theme.VitaMove.NoActionBar" />
+
+
+        <activity
+            android:name=".exercise.ui.ExerciseDetailsActivity"
+            android:label="@string/exercise_details"
+            android:theme="@style/Theme.VitaMove">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".core.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name=".programs.ui.CreateProgramWeekActivity"
+            android:exported="false"
+            android:label="Настройка недели программы"
+            android:theme="@style/Theme.VitaMove" />
+        <activity android:name="com.martist.vitamove.programs.ui.ProgramDayExerciseSelectionActivity" />
+        <activity
+            android:name=".nutrition.ui.NutritionAnalyticsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.VitaMove" />
+        <activity android:name=".activities.StepHistoryActivity" />
+        <activity android:name=".weight.ui.WeightHistoryActivity" />
+        <activity
+            android:name=".measurement.BodyMeasurementsActivity"
+            android:exported="false"
+            android:label="Замеры тела"
+            android:theme="@style/Theme.VitaMove"
+            android:parentActivityName=".core.ui.MainActivity" />
+        <activity
+            android:name=".measurement.BodyMeasurementDetailActivity"
+            android:exported="false"
+            android:label="Детали замера"
+            android:theme="@style/Theme.VitaMove"
+            android:parentActivityName=".measurement.BodyMeasurementsActivity" />
+        <activity
+            android:name=".nutrition.ui.CaloriesExplanationActivity"
+            android:exported="false"
+            android:label="Дневная норма калорий"
+            android:theme="@style/Theme.VitaMove"
+            android:parentActivityName=".core.ui.MainActivity" />
+
+        <!-- Receiver для отслеживания изменений состояния сети -->
+        <receiver
+            android:name=".core.domain.receivers.NetworkChangeReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

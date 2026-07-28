@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000">
+
+    <!-- Фон с затемнением встроен в сам FrameLayout -->
+
+    <!-- Основной контент -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
+
+            <!-- Центральная карточка с результатами -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="32dp"
+                    android:gravity="center"
+                    android:background="?attr/colorSurface">
+
+                    <!-- Иконка трофея -->
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/ic_trophy"
+                        android:contentDescription="@string/trophy_icon"
+                        app:tint="@color/primary" />
+
+                    <!-- Мотивирующий заголовок -->
+                    <TextView
+                        android:id="@+id/motivationalTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/great_job"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:gravity="center" />
+
+                    <!-- Подзаголовок -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/workout_completed"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_secondary"
+                        android:gravity="center" />
+
+                    <!-- Разделитель -->
+                    <View
+                        android:layout_width="60dp"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@color/primary" />
+
+                    <!-- Статистика тренировки -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <!-- Блок: Время тренировки -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:background="@drawable/stat_item_background">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_timer"
+                                android:contentDescription="@string/time_icon"
+                                app:tint="@color/stat_time_color" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="16dp">
+
+                                <TextView
+                                    android:id="@+id/workoutDurationValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="45:30"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/duration"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_secondary" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Блок: Тоннаж -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/stat_item_background">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_weight"
+                                android:contentDescription="@string/tonnage_icon"
+                                app:tint="@color/stat_tonnage_color" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="16dp">
+
+                                <TextView
+                                    android:id="@+id/workoutTonnageValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2500"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tonnage_kg"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_secondary" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Блок: Калории -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:padding="16dp"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/stat_item_background">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_fire"
+                                android:contentDescription="@string/calories_icon"
+                                app:tint="@color/stat_calories_color" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:layout_marginStart="16dp">
+
+                                <TextView
+                                    android:id="@+id/workoutCaloriesValue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="320"
+                                    android:textSize="32sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_primary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/calories_burned"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/text_secondary" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Кнопка Готово -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/doneButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="32dp"
+                        android:text="@string/done"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="16dp"
+                        app:backgroundTint="@color/primary" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Konfetti View для анимации конфетти - размещен после ScrollView, чтобы отображаться поверх -->
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>
+

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/card_background">
+
+    <!-- Заголовок -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Дни тренировок"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary" />
+
+    <!-- Подзаголовок -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Выберите дни недели для тренировок"
+        android:textSize="14sp"
+        android:textColor="?android:attr/textColorSecondary" />
+
+    <!-- Подсказка о количестве дней -->
+    <TextView
+        android:id="@+id/days_selection_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/gray_600"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:visibility="visible"
+        tools:text="Выберите 3 дня для тренировок" />
+
+    <!-- Дни недели -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/days_of_week_chip_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:chipSpacingHorizontal="5dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        app:singleLine="true"
+        app:singleSelection="false">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_monday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="ПН"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_tuesday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="ВТ"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_wednesday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="СР"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_thursday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="ЧТ"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_friday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="ПТ"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_saturday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="СБ"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sunday"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:text="ВС"
+            android:textColor="@color/chip_text_color"
+            app:chipBackgroundColor="@color/chip_state_color"
+            app:chipStrokeWidth="1dp"
+            app:chipStrokeColor="@color/colorPrimary"
+            style="@style/CircularChipStyle"/>
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Кнопки -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_cancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Отмена"
+            android:textColor="?android:attr/textColorSecondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_save"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orange_500"
+            android:text="Сохранить"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</LinearLayout>
+

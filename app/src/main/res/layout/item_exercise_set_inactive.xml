@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/exercise_set_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:id="@+id/set_number"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:textColor="@color/gray_400"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text=""
+            android:background="@drawable/circle_background_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/weight_text"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:text="0.0"
+            android:textColor="@color/gray_600"
+            android:textSize="16sp"
+            android:background="@drawable/edit_text_rounded_background_inactive"
+            app:layout_constraintStart_toEndOf="@id/set_number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="кг"
+            android:layout_marginStart="4dp"
+            android:textColor="@color/gray_600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/weight_text"
+            app:layout_constraintBottom_toBottomOf="@id/weight_text"
+            app:layout_constraintTop_toTopOf="@id/weight_text" />
+
+        <TextView
+            android:id="@+id/reps_text"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/gray_600"
+            android:textSize="16sp"
+            android:background="@drawable/edit_text_rounded_background_inactive"
+            app:layout_constraintStart_toEndOf="@id/weight_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="повт."
+            android:layout_marginStart="4dp"
+            android:textColor="@color/gray_600"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/reps_text"
+            app:layout_constraintBottom_toBottomOf="@id/reps_text"
+            app:layout_constraintTop_toTopOf="@id/reps_text" />
+
+        <ImageButton
+            android:id="@+id/action_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_add"
+            app:tint="@color/orange_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView> 

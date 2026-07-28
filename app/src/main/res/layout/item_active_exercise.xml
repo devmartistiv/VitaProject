@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="?attr/colorSurface">
+
+    <!-- Вертикальная полоса акцентного цвета слева -->
+    <View
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="@color/orange_500" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:layout_marginStart="4dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/exercise_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textStyle="bold"
+                tools:text="Отжимания на брусьях" />
+                
+            <!-- Информация о подходах и повторениях -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp"
+                android:padding="4dp"
+                android:background="@drawable/stats_background"
+                android:minHeight="30dp">
+                
+                <!-- Подходы -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <ImageView
+                        android:id="@+id/exercise_sets_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_repeat"
+                        app:tint="@color/colorPrimary"
+                        android:contentDescription="Подходы" />
+                        
+                    <TextView
+                        android:id="@+id/exercise_sets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:minWidth="80dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorPrimary"
+                        tools:text="4 подхода" />
+                </LinearLayout>
+                
+                <!-- Разделитель -->
+                <TextView
+                    android:id="@+id/stats_separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    android:textColor="@color/orange_500"
+                    android:layout_marginHorizontal="4dp" />
+                
+                <!-- Повторения -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <ImageView
+                        android:id="@+id/exercise_reps_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_fitness"
+                        app:tint="@color/colorPrimary"
+                        android:contentDescription="Повторения" />
+                        
+                    <TextView
+                        android:id="@+id/exercise_reps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:minWidth="80dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorPrimary"
+                        tools:text="10 повторений" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Скрываем отображение мышечных групп -->
+            <HorizontalScrollView
+                android:id="@+id/muscle_groups_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none"
+                android:visibility="gone">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/muscle_groups_chip_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true">
+
+                    <!-- Чип заполняется программно -->
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/muscle_chip_template"
+                        style="@style/Widget.MaterialComponents.Chip.Action"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/orange_500"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="#33FF8C00"
+                        app:chipMinHeight="26dp"
+                        app:ensureMinTouchTargetSize="false"
+                        tools:text="Грудь"
+                        android:visibility="gone" />
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <!-- Сохраняем текстовое поле для обратной совместимости -->
+            <TextView
+                android:id="@+id/exercise_muscle_groups"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:text="Грудь, Трицепс" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/menu_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+
+            android:layout_gravity="center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_more_vert"
+            app:tint="@color/gray_400"
+            android:contentDescription="Меню упражнения" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 

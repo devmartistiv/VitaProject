@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".exercise.ui.ExerciseDetailsActivity">
+
+    <ProgressBar
+        android:id="@+id/loadingIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="70dp"
+        android:clipToPadding="false"
+        android:background="@color/colorBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textExerciseName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Самомассаж с пенным роликом" />
+
+            <TextView
+                android:id="@+id/labelDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/exercise_difficulty"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textExerciseName" />
+
+            <TextView
+                android:id="@+id/textDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/labelDifficulty"
+                app:layout_constraintStart_toEndOf="@id/labelDifficulty"
+                tools:text="Среднее" />
+
+            <TextView
+                android:id="@+id/labelType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/exercise_type"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@id/labelDifficulty"
+                app:layout_constraintStart_toEndOf="@id/textDifficulty" />
+
+            <TextView
+                android:id="@+id/textType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/labelType"
+                app:layout_constraintStart_toEndOf="@id/labelType"
+                tools:text="Восстановительное" />
+
+            <TextView
+                android:id="@+id/labelPrimaryMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_primary_muscles"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelDifficulty" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupPrimaryMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelPrimaryMuscles" />
+
+            <!-- Описание -->
+            <TextView
+                android:id="@+id/labelDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_description"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chipGroupPrimaryMuscles" />
+
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelDescription"
+                tools:text="Техника миофасциального расслабления, которая помогает снять мышечное напряжение, улучшить кровообращение и ускорить восстановление тканей после тренировки." />
+
+            <!-- Оборудование -->
+            <TextView
+                android:id="@+id/labelEquipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_equipment"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textDescription" />
+
+            <TextView
+                android:id="@+id/textEquipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelEquipment"
+                tools:text="Пенный ролик (foam roller)" />
+
+            <!-- Инструкция -->
+            <TextView
+                android:id="@+id/labelInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_instructions"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textEquipment" />
+
+            <TextView
+                android:id="@+id/textInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelInstructions"
+                tools:text="1. Расположите ролик под целевой мышцей\n2. Медленно перекатывайте ролик, оказывая давление на напряженные участки\n3. Удерживайте на проблемных зонах 20-30 секунд" />
+
+            <!-- Распространенные ошибки -->
+            <TextView
+                android:id="@+id/labelCommonMistakes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_common_mistakes"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInstructions" />
+
+            <TextView
+                android:id="@+id/textCommonMistakes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelCommonMistakes"
+                tools:text="Слишком быстрое движение ролика\nНедостаточное давление на ролик\nИгнорирование болезненных участков" />
+
+            <!-- Противопоказания -->
+            <TextView
+                android:id="@+id/labelContraindications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_contraindications"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textCommonMistakes" />
+
+            <TextView
+                android:id="@+id/textContraindications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelContraindications"
+                tools:text="Травмы спины\nОстрая боль в суставах\nВысокое артериальное давление" />
+
+            <!-- Вспомогательные мышцы -->
+            <TextView
+                android:id="@+id/labelSecondaryMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_secondary_muscles"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textContraindications" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupSecondaryMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelSecondaryMuscles" />
+
+            <!-- Мышцы-стабилизаторы -->
+            <TextView
+                android:id="@+id/labelStabilizerMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/exercise_stabilizer_muscles"
+                android:textColor="@color/textColorSecondary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chipGroupSecondaryMuscles" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupStabilizerMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelStabilizerMuscles" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Фиксированная кнопка внизу экрана -->
+    <Button
+        android:id="@+id/buttonAddToWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:text="@string/add_to_workout"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:cornerRadius="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Кнопка "Назад" внизу экрана -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/back_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:text="НАЗАД"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:backgroundTint="@color/orange_500"
+        app:cornerRadius="24dp"
+        android:visibility="gone" />
+
+</FrameLayout> 

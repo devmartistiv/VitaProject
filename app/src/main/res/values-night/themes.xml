@@ -1,0 +1,74 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.VitaMove" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <item name="colorPrimary">@color/colorBackground</item>
+        <item name="colorOnPrimary">@color/colorPrimary</item>
+        <item name="colorSurface">@color/colorBackground</item>
+        <item name="colorOnSurface">@color/primary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="colorSecondary">@color/accent_color</item>
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="android:windowBackground">@color/background_color</item>
+        <!-- Стили для стандартных компонентов -->
+        <item name="materialButtonStyle">@style/Widget.VitaMove.Button</item>
+        <item name="linearProgressIndicatorStyle">@style/AppProgressbar</item>
+        <item name="chipStyle">@style/Widget.VitaMove.Chip.Filter</item>
+        <item name="textInputStyle">@style/Widget.VitaMove.TextInputLayout</item>
+        <item name="materialCardViewStyle">@style/AppCard</item>
+        <!-- Переопределение стилей диалогов -->
+        <item name="materialAlertDialogTheme">@style/MaterialAlertDialog</item>
+
+        <!-- Дополнительные атрибуты для темной темы -->
+        <item name="dividerColor">@color/divider_color</item>
+        <item name="colorPrimaryContainer">@color/colorPrimary</item>
+        <item name="createProgramWeekBackground">@color/background_color_to_create_program_week</item>
+    </style>
+
+    <style name="AppCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- Базовая тема приложения с объединенными атрибутами -->
+    <style name="Theme.VitaMove" parent="Base.Theme.VitaMove">
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="31">
+            @mipmap/ic_vita_black_round
+        </item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="31">
+            @color/colorBackground
+        </item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="31">
+            @color/colorBackground
+        </item>
+
+
+        <!-- Шрифты -->
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="fontFamily">@font/montserrat</item>
+
+        <!-- Статус бар и навигационная панель -->
+        <item name="android:statusBarColor">@color/background_color</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+
+        <!-- Material Design 2.0 атрибуты -->
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+
+        <item name="colorSecondaryVariant">@color/colorAccentDark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSurfaceContainer">@color/colorSurface</item>
+        <item name="colorSurfaceContainerHigh">@color/colorSurface</item>
+
+        <item name="colorOnSurface">@color/white</item>
+
+        <!-- Цвета текста -->
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+
+        <!-- Обводка для input полей -->
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+</resources>

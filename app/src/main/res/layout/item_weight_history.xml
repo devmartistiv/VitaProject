@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/weight_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:text="75.0 кг"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weight_difference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="-0.5 кг"
+            android:textColor="@color/green_500"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/weight_value"
+            app:layout_constraintTop_toTopOf="@+id/weight_value"
+            app:layout_constraintBottom_toBottomOf="@+id/weight_value" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_weight"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_delete"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Удалить запись"
+            app:tint="@color/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/weight_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:alpha="0.7"
+            android:text="01 Января 2023"
+            android:layout_marginTop="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weight_value" />
+
+        <TextView
+            android:id="@+id/weight_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:alpha="0.7"
+            android:text="12:30"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/weight_date"
+            app:layout_constraintTop_toTopOf="@+id/weight_date"
+            app:layout_constraintBottom_toBottomOf="@+id/weight_date" />
+
+        <TextView
+            android:id="@+id/weight_notes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:text="Измерение после тренировки"
+            android:layout_marginTop="8dp"
+            android:visibility="visible"
+            android:background="@drawable/note_background"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete_weight"
+            app:layout_constraintTop_toBottomOf="@+id/weight_date" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView> 

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="24dp">
+
+        <!-- Минималистичный заголовок -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="24dp">
+
+            <!-- Полоска для drag-and-drop -->
+            <View
+                android:layout_width="40dp"
+                android:layout_height="4dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bottom_sheet_handle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Голосовой ввод продуктов"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:fontFamily="sans-serif-medium" />
+
+        </LinearLayout>
+        <!-- Кнопка микрофона -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingVertical="12dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/mic_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mic"
+                app:tint="@android:color/white"
+                app:backgroundTint="@color/colorAccent"
+                app:fabSize="normal"
+                app:elevation="6dp"
+                android:contentDescription="Нажмите для записи" />
+
+            <TextView
+                android:id="@+id/status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Нажмите для записи"
+                android:textSize="14sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif" />
+
+        </LinearLayout>
+
+        <!-- Распознанный текст -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/recognized_text_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Распознанный текст"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/recognized_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:lineSpacingMultiplier="1.2"
+                    tools:text="Я съел двести грамм риса и сто грамм курицы" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Найденные продукты -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Найденные продукты"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:layout_marginBottom="12dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recognized_foods_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_recognized_food"
+                    tools:itemCount="2" />
+
+                <TextView
+                    android:id="@+id/empty_products_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Пока нет найденных продуктов"
+                    android:textSize="14sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:gravity="center"
+                    android:paddingVertical="24dp"
+                    android:visibility="visible"
+                    tools:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Выбор приема пищи -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Прием пищи"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:layout_marginBottom="12dp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/meal_type_chip_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:chipSpacingHorizontal="8dp"
+                    app:chipSpacingVertical="4dp">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_breakfast"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        app:chipBackgroundColor="@color/voice_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Завтрак"
+                        android:checked="true" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_lunch"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        app:chipBackgroundColor="@color/voice_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Обед" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_dinner"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+
+                        app:chipBackgroundColor="@color/voice_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ужин" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_snack"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        app:chipBackgroundColor="@color/voice_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Перекус" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Кнопка добавления -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_foods_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Добавить продукты"
+            android:layout_gravity="bottom"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+
+
+            app:backgroundTint="@color/colorAccent"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_add"
+            app:iconTint="@android:color/white"
+            app:iconSize="20dp"
+            app:iconGravity="textStart" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

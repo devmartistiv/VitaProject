@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dish_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:strokeWidth="1dp"
+    app:strokeColor="?attr/dividerColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Название блюда -->
+        <TextView
+            android:id="@+id/dish_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Название блюда"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- Описание блюда -->
+        <TextView
+            android:id="@+id/dish_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Описание блюда"
+            android:textSize="14sp"
+            android:textColor="@color/textColorSecondary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="gone" />
+
+        <!-- Контейнер для калорий и нутриентов -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Калории -->
+            <TextView
+                android:id="@+id/calories_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0 ккал"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary" />
+
+            <!-- Кнопка добавления блюда -->
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                app:fabSize="mini"
+                app:backgroundTint="@color/colorAccent"
+                app:tint="@android:color/white"/>
+
+        </LinearLayout>
+
+        <!-- БЖУ -->
+        <TextView
+            android:id="@+id/nutrients_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Б: 0 • Ж: 0 • У: 0"
+            android:textSize="12sp"
+            android:textColor="@color/textColorSecondary" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView> 

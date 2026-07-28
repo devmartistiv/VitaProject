@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_water_portion_button_new"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:elevation="4dp"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/water_glass_icon"
+            app:tint="@color/water_blue"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/portion_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 мл"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/water_blue" />
+    </LinearLayout>
+</FrameLayout> 

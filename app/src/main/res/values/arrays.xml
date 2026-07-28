@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Массивы для настроек единиц измерения -->
+    <string-array name="units_entries">
+        <item>Метрическая (кг, см)</item>
+        <item>Имперская (фунты, дюймы)</item>
+    </string-array>
+    
+    <string-array name="units_values">
+        <item>metric</item>
+        <item>imperial</item>
+    </string-array>
+    
+    <!-- Массивы для целей тренировок -->
+    <string-array name="fitness_goal_entries">
+        <item>Снижение веса</item>
+        <item>Набор мышечной массы</item>
+        <item>Улучшение выносливости</item>
+        <item>Общая физическая подготовка</item>
+    </string-array>
+    
+    <string-array name="fitness_goal_values">
+        <item>weight_loss</item>
+        <item>muscle_gain</item>
+        <item>endurance</item>
+        <item>general_fitness</item>
+    </string-array>
+
+    <!-- Массивы для настроек темы -->
+    <string-array name="dark_mode_entries">
+        <item>Светлая</item>
+        <item>Темная</item>
+        <item>Системная</item>
+    </string-array>
+
+    <string-array name="dark_mode_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>system</item>
+    </string-array>
+</resources> 

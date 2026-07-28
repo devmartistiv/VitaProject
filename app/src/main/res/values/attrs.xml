@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme">
+        <attr name="dividerColor" format="color" />
+    </declare-styleable>
+    <!-- Атрибуты для корректного отображения в обеих темах -->
+    <attr name="colorPrimaryContainer" format="color" />
+    <attr name="createProgramWeekBackground" format="color" />
+
+</resources> 

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_50">
+
+    <!-- Modern Toolbar with Gradient -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_notes_header"
+        android:elevation="8dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:theme="@style/ThemeOverlay.Material3.Toolbar.Surface"
+            app:titleTextColor="@android:color/white"
+            app:subtitleTextColor="@android:color/white"
+            app:navigationIconTint="@color/white" />
+
+        <!-- Beautiful header decoration -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_notes_header"
+            android:alpha="0.7" />
+
+    </LinearLayout>
+
+    <!-- Modern ScrollView with enhanced spacing -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:clipToPadding="false">
+
+            <!-- Modern Add Note Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="0dp"
+                android:background="@drawable/gradient_add_note_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:background="@drawable/gradient_add_note_card">
+
+                    <!-- Header with icon -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_edit"
+                            android:layout_marginEnd="12dp"
+                            app:tint="@color/orange_500" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Добавить заметку"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/notes_text_primary"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                    <!-- Modern Input Field -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        app:boxStrokeColor="@color/orange_500"
+
+                        app:boxBackgroundMode="filled"
+                        app:boxBackgroundColor="@color/editTextBackground"
+                        app:boxCornerRadiusTopStart="16dp"
+                        app:boxCornerRadiusTopEnd="16dp"
+                        app:boxCornerRadiusBottomStart="16dp"
+                        app:boxCornerRadiusBottomEnd="16dp"
+
+                        app:startIconTint="@color/orange_500"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/note_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Введите заметку к упражнению"
+                            app:hintTextColor="@color/textColorSecondary"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:maxLines="8"
+                            android:scrollbars="vertical"
+                            android:textSize="16sp"
+                            android:lineSpacingExtra="4dp"
+                            android:padding="16dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Modern Save Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/save_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="20dp"
+                        android:text="СОХРАНИТЬ ЗАМЕТКУ"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.02"
+                        android:background="@drawable/gradient_save_button"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="28dp"
+                        app:icon="@drawable/ic_check"
+                        app:iconTint="@color/white"
+                        app:iconGravity="textStart"
+                        android:elevation="8dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Modern 1RM Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="0dp"
+                android:background="@drawable/gradient_one_rm_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:background="@drawable/gradient_one_rm_card">
+
+                    <!-- Modern Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/gradient_save_button"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:layout_marginEnd="12dp"
+                            android:elevation="4dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_weight"
+
+                                app:tint="@color/white" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Одноповторный максимум"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/notes_text_primary"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <ImageView
+                            android:id="@+id/one_rm_info_button"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_info"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="6dp"
+                            android:contentDescription="Информация о расчете 1ПМ"
+                            app:tint="@color/notes_text_secondary" />
+
+                    </LinearLayout>
+
+                    <!-- Modern 1RM Display -->
+                    <LinearLayout
+                        android:id="@+id/one_rm_content_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <!-- Value Display with Modern Styling -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="#20FFFFFF"
+                            android:padding="20dp"
+                            android:layout_marginBottom="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="РАСЧЕТНЫЙ МАКСИМУМ"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/notes_text_secondary"
+                                android:letterSpacing="0.1"
+                                android:layout_marginBottom="8dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/one_rm_value"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="--"
+                                    android:textSize="48sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/green_500"
+                                    android:fontFamily="sans-serif-light" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:text="кг"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/notes_text_secondary" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- Calculation Info -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="#15000000"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_info"
+                                android:layout_marginEnd="8dp"
+                                app:tint="@color/notes_text_secondary" />
+
+                            <TextView
+                                android:id="@+id/one_rm_based_on"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="На основе последнего выполнения"
+                                android:textSize="13sp"
+                                android:textColor="@color/notes_text_secondary"
+                                android:fontFamily="sans-serif-medium" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Modern No Data Message -->
+                    <LinearLayout
+                        android:id="@+id/one_rm_no_data_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="32dp"
+                        android:visibility="gone"
+                        android:background="#20FFFFFF">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:src="@drawable/ic_fitness"
+                            android:layout_marginBottom="16dp"
+                            app:tint="@color/notes_empty_state_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Недостаточно данных"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/notes_text_primary"
+                            android:gravity="center"
+                            android:layout_marginBottom="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Выполните упражнение с весом\nдля расчета 1ПМ"
+                            android:textSize="14sp"
+                            android:textColor="@color/notes_empty_state_text"
+                            android:gravity="center"
+                            android:lineSpacingExtra="2dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Modern History Section -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="12dp"
+                app:strokeWidth="0dp"
+                android:background="@drawable/gradient_history_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/gradient_history_card">
+
+                    <!-- Modern History Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="24dp"
+                        android:paddingBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/gradient_save_button"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:layout_marginEnd="12dp"
+                            android:elevation="4dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/ic_history"
+
+                                app:tint="@color/white" />
+
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Предыдущие заметки"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/notes_text_primary"
+                            android:fontFamily="sans-serif-medium" />
+
+                    </LinearLayout>
+
+                    <!-- Modern Separator -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@drawable/gradient_save_button"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginBottom="16dp"
+                        android:alpha="0.3" />
+
+                    <!-- Modern History List -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/history_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:paddingBottom="16dp"
+                        android:clipToPadding="false"
+                        android:scrollbars="none"
+                        android:overScrollMode="never"
+                        tools:listitem="@layout/item_exercise_note_history" />
+
+                    <!-- Modern Empty State -->
+                    <LinearLayout
+                        android:id="@+id/empty_state_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="40dp"
+                        android:visibility="gone"
+                        android:background="#20FFFFFF">
+
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/ic_note_add"
+                            android:layout_marginBottom="20dp"
+                            app:tint="@color/notes_empty_state_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Пока нет заметок"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/notes_text_primary"
+                            android:gravity="center"
+                            android:layout_marginBottom="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Добавьте первую заметку\nи она появится здесь"
+                            android:textSize="15sp"
+                            android:textColor="@color/notes_empty_state_text"
+                            android:gravity="center"
+                            android:lineSpacingExtra="4dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

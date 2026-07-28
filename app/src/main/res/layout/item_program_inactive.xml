@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/program_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="true"
+
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Изображение программы -->
+        <ImageView
+            android:id="@+id/program_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/program_image_description"
+            tools:src="@drawable/placeholder_workout" />
+
+        <!-- Градиент для улучшения читаемости текста на изображении -->
+        <View
+            android:id="@+id/gradient_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/image_gradient_overlay"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Уровень сложности -->
+        <TextView
+            android:id="@+id/program_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/level_badge_background"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Начинающий" />
+
+
+        <!-- Название программы -->
+        <TextView
+            android:id="@+id/program_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toTopOf="@+id/program_duration"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Сплит для начинающих" />
+
+        <!-- Продолжительность программы -->
+        <TextView
+            android:id="@+id/program_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:drawablePadding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/program_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            tools:text="4 недель, 3 дней в неделю" />
+
+        <!-- Контейнер для основной информации -->
+        <LinearLayout
+            android:id="@+id/program_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/program_image">
+
+            <!-- Описание программы -->
+            <TextView
+                android:id="@+id/program_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="Программа для тех, кто только начинает заниматься фитнесом. Включает базовые упражнения с постепенным увеличением нагрузки." />
+
+            <!-- Группа меток для целей программы -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/goal_chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:chipSpacingHorizontal="8dp" />
+
+            <!-- Текст о принадлежности программы пользователю -->
+            <TextView
+                android:id="@+id/program_ownership_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:visibility="gone"
+                android:textColor="@color/colorAccent"
+                tools:text="Программа создана пользователем и видна только ему"
+                tools:visibility="visible" />
+
+            <!-- Контейнер кнопок -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+
+                <!-- Кнопка "Настроить" -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/configure_button"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:text="Настроить"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/colorPrimary"
+                    style="@style/Widget.VitaMove.Button" />
+
+                <!-- Кнопка "Подробнее" -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/details_button"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Подробнее"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    app:strokeColor="@color/colorPrimary"
+                    style="@style/Widget.VitaMove.Button.OutlinedButton" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView> 

@@ -1,0 +1,16 @@
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+       <item android:state_focused="true">
+           <shape android:shape="rectangle">
+               <solid android:color="@android:color/transparent"/>
+               <stroke android:width="1dp" android:color="?attr/colorPrimary"/> <!-- Обводка при фокусе -->
+               <corners android:radius="4dp"/>
+           </shape>
+       </item>
+       <item>
+           <shape android:shape="rectangle">
+               <solid android:color="?android:attr/colorBackgroundFloating"/> <!-- Фон по умолчанию -->
+               <stroke android:width="1dp" android:color="@color/mtrl_textinput_default_box_stroke_color"/> <!-- Легкая обводка -->
+               <corners android:radius="4dp"/>
+           </shape>
+       </item>
+   </selector>

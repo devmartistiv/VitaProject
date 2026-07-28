@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Какой вес вы хотите достичь?"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
+        android:layout_marginBottom="24dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <!-- Значение веса крупным шрифтом в центре экрана -->
+        <TextView
+            android:id="@+id/tvTargetWeightValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="65"
+            android:textSize="48sp"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/tvTargetWeightUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="кг"
+            android:textSize="20sp"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvTargetWeightValue"
+            app:layout_constraintStart_toEndOf="@id/tvTargetWeightValue" />
+
+        <!-- Сообщение об ошибке прямо под весом -->
+        <TextView
+            android:id="@+id/tvWeightGoalError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="24dp"
+            android:text="⚠️ Для похудения целевой вес должен быть меньше текущего"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_red_dark"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tvTargetWeightValue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- RecyclerView для отображения линейки веса -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/targetWeightRulerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="120dp"
+            android:paddingEnd="120dp"
+            app:layout_constraintTop_toBottomOf="@id/tvWeightGoalError"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+            
+        <!-- Центральный индикатор -->
+        <View
+            android:id="@+id/centerIndicator"
+            android:layout_width="2dp"
+            android:layout_height="80dp"
+            android:background="@color/orange_500"
+            app:layout_constraintTop_toTopOf="@id/targetWeightRulerRecyclerView"
+            app:layout_constraintBottom_toBottomOf="@id/targetWeightRulerRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <!-- Информация о разнице с текущим весом -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/gray_300"
+        app:cardBackgroundColor="?android:attr/colorBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Разница с текущим весом"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvWeightDifference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вы хотите сбросить 5 кг от текущего веса"
+                android:textSize="16sp"
+                android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:fitsSystemWindows="true">
+
+    <!-- Градиентный фон верхней части экрана -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@drawable/dashboard_gradient_background" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:clipToPadding="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="80dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- Приветствие и дата -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/dashboard_greeting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Доброе утро, Сергей!"
+                    android:textColor="@android:color/white"
+                    android:textSize="28sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/dashboard_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Сегодня, 04 мая"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:alpha="0.85"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@+id/dashboard_greeting"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Карточка баланса калорий -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_calories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="4dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="18dp"
+                app:strokeWidth="0dp"
+                app:cardCornerRadius="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header_section">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/calories_card_gradient"
+                    android:padding="28dp">
+
+                    <ImageView
+                        android:id="@+id/icon_calories"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/circle_icon_background"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_fire"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/calories_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Баланс калорий"
+                        android:textColor="@android:color/white"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/icon_calories"
+                        app:layout_constraintStart_toEndOf="@+id/icon_calories"
+                        app:layout_constraintTop_toTopOf="@+id/icon_calories" />
+
+                    <!--                    <ImageView-->
+                    <!--                        android:id="@+id/calories_arrow"-->
+                    <!--                        android:layout_width="28dp"-->
+                    <!--                        android:layout_height="28dp"-->
+                    <!--                        android:src="@drawable/ic_arrow_right"-->
+                    <!--                        app:tint="@android:color/white"-->
+                    <!--                        android:alpha="0.8"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        app:layout_constraintTop_toTopOf="@+id/calories_title" />-->
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/calories_progress_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/icon_calories"
+                        app:layout_constraintWidth_percent="0.45">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/calories_circular_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:progress="0"
+                            app:indicatorColor="@android:color/white"
+                            app:indicatorDirectionCircular="clockwise"
+                            app:indicatorSize="140dp"
+                            app:indicatorTrackGapSize="0dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:trackColor="#33FFFFFF"
+                            app:trackThickness="18dp" />
+
+                        <TextView
+                            android:id="@+id/calories_remaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="3,705"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.4" />
+
+                        <TextView
+                            android:id="@+id/calories_progress_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.9"
+                            android:text="Осталось"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/calories_remaining" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- Правая часть со статистикой -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/calories_progress_container"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/calories_progress_container"
+                        app:layout_constraintTop_toTopOf="@+id/calories_progress_container">
+
+                        <!-- Потреблено и сожжено -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <!-- Потреблено -->
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/home_calories_potreb"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="12dp"
+                                app:cardBackgroundColor="@color/home_fragment_card_caloreis"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="0dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <TextView
+                                        android:id="@+id/calories_food_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:autoSizeMaxTextSize="16sp"
+                                        android:autoSizeMinTextSize="12sp"
+                                        android:autoSizeTextType="uniform"
+                                        android:text="ПОТРЕБЛЕНО"
+                                        android:textColor="#FFF3E0"
+                                        android:textSize="13sp" />
+
+                                    <TextView
+                                        android:id="@+id/calories_food"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-medium"
+                                        android:text="0"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <!-- Сожжено -->
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/home_calories_burned"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:cardBackgroundColor="@color/home_fragment_card_caloreis"
+                                app:cardCornerRadius="12dp"
+                                app:cardElevation="0dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:padding="12dp">
+
+                                    <TextView
+                                        android:id="@+id/calories_exercise_label"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="СОЖЖЕНО"
+                                        android:textColor="#FFF3E0"
+                                        android:textSize="13sp" />
+
+                                    <TextView
+                                        android:id="@+id/calories_exercise"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="sans-serif-medium"
+                                        android:text="527"
+                                        android:textColor="@android:color/white"
+                                        android:textSize="24sp" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Карточка воды -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_water"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/card_calories"
+                app:strokeWidth="0dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/water_card_gradient"
+                    android:padding="24dp">
+
+                    <!-- Заголовок -->
+                    <LinearLayout
+                        android:id="@+id/waterBalanceTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/icon_water"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/circle_icon_background"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_water"
+                            app:tint="@android:color/white" />
+
+                        <TextView
+                            android:id="@+id/water_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Водный баланс"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp" />
+
+                        <ImageView
+                            android:id="@+id/water_arrow"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:alpha="0.8"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@android:color/white" />
+                    </LinearLayout>
+
+                    <!-- КОНТЕЙНЕР ПРОГРЕССА (Адаптивный через проценты) -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/water_progress_container"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/waterBalanceTitle"
+                        app:layout_constraintWidth_percent="0.45">
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:id="@+id/water_circular_progress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:max="100"
+                            android:progress="0"
+                            app:indicatorTrackGapSize="0dp"
+                            app:indicatorColor="@android:color/white"
+                            app:indicatorSize="130dp"
+                            app:trackColor="#33FFFFFF"
+                            app:trackThickness="16dp" />
+
+                        <TextView
+                            android:id="@+id/water_progress_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="60%"
+                            android:textColor="@android:color/white"
+                            android:textSize="22sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.4" />
+
+                        <TextView
+                            android:id="@+id/water_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.9"
+                            android:text="1.5 / 2.5 л"
+                            android:textColor="@android:color/white"
+                            android:textSize="13sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/water_progress_text" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- КНОПКИ (Занимают всё оставшееся справа место) -->
+                    <LinearLayout
+                        android:id="@+id/btns_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="16dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        app:layout_constraintBottom_toBottomOf="@+id/water_progress_container"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/water_progress_container"
+                        app:layout_constraintTop_toTopOf="@+id/water_progress_container">
+
+                        <LinearLayout
+                            android:id="@+id/btn_add_water_200"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_glass_background"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="75dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/water_glass_icon" />
+
+                            <TextView
+                                android:id="@+id/tvWaterAmount200"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+
+                                android:text="200 мл"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/btn_add_water_500"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_glass_background"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="75dp"
+                                android:src="@drawable/water_glass_icon_large" />
+
+                            <TextView
+                                android:id="@+id/tvWaterAmount500"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:text="500 мл"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ОРИГИНАЛЬНАЯ КАРТОЧКА ВЕСА - ЗАКОММЕНТИРОВАНО
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="10dp"
+                app:strokeWidth="0dp"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/card_water">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/weight_card_gradient"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/icon_weight"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_wieght_home"
+                        android:padding="8dp"
+                        android:background="@drawable/circle_icon_background"
+                        app:tint="@android:color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/weight_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Контроль веса"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/icon_weight"
+                        app:layout_constraintTop_toTopOf="@+id/icon_weight"
+                        app:layout_constraintBottom_toBottomOf="@+id/icon_weight"/>
+
+                    <ImageView
+                        android:id="@+id/weight_arrow"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="@android:color/white"
+                        android:alpha="0.7"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <LinearLayout
+                        android:id="@+id/weight_stats_container"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintTop_toBottomOf="@+id/icon_weight"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:baselineAligned="false">
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#33FFFFFF">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="НАЧАЛЬНЫЙ"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="10sp"/>
+                                <TextView
+                                    android:id="@+id/initial_weight_card"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="105.0 кг"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#33FFFFFF">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ТЕКУЩИЙ"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="10sp"/>
+                                <TextView
+                                    android:id="@+id/current_weight_card"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="99.0 кг"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#33FFFFFF">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:padding="12dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="ЦЕЛЕВОЙ"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="10sp"/>
+                                <TextView
+                                    android:id="@+id/target_weight_card"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    tools:text="89.0 кг"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+            -->
+
+            <!-- Контейнер для компактных карточек веса и шагов -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="4dp"
+                android:baselineAligned="false"
+
+                app:layout_constraintTop_toBottomOf="@+id/card_water">
+
+                <!-- Упрощенная карточка веса (только текущий вес) -->
+                <com.google.android.material.card.MaterialCardView
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/card_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/card_steps"
+                    app:cardElevation="16dp"
+                    app:strokeWidth="0dp"
+                    app:cardCornerRadius="28dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/weight_card_gradient"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:id="@+id/icon_weight"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_wieght_home"
+                            android:padding="10dp"
+                            android:background="@drawable/circle_icon_background"
+                            app:tint="@android:color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/weight_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Вес"
+                            android:textColor="@android:color/white"
+                            android:autoSizeTextType="uniform"
+                            android:autoSizeMinTextSize="11sp"
+                            android:autoSizeMaxTextSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_marginStart="12dp"
+                            app:layout_constraintStart_toEndOf="@+id/icon_weight"
+                            app:layout_constraintTop_toTopOf="@+id/icon_weight"
+                            app:layout_constraintBottom_toBottomOf="@+id/icon_weight" />
+
+                        <ImageView
+                            android:id="@+id/weight_arrow"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@android:color/white"
+                            android:alpha="0.8"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/icon_weight"
+                            app:layout_constraintBottom_toBottomOf="@+id/icon_weight" />
+
+                        <TextView
+                            android:id="@+id/current_weight_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="99.0 кг"
+                            android:textColor="@android:color/white"
+                            android:textSize="28sp"
+                            android:fontFamily="sans-serif-medium"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/icon_weight"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Упрощенная карточка шагов (только количество) -->
+                <com.google.android.material.card.MaterialCardView
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/card_steps"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/card_weight"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:layout_marginStart="8dp"
+                    app:cardElevation="16dp"
+                    app:strokeWidth="0dp"
+                    app:cardCornerRadius="28dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/steps_card_gradient"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:id="@+id/icon_steps"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_footsteps"
+                            android:padding="10dp"
+                            android:background="@drawable/circle_icon_background"
+                            app:tint="@android:color/white"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/steps_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Шаги"
+                            android:textColor="@android:color/white"
+
+                            android:autoSizeTextType="uniform"
+                            android:autoSizeMinTextSize="11sp"
+                            android:autoSizeMaxTextSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_marginStart="12dp"
+                            app:layout_constraintStart_toEndOf="@+id/icon_steps"
+                            app:layout_constraintTop_toTopOf="@+id/icon_steps"
+                            app:layout_constraintBottom_toBottomOf="@+id/icon_steps" />
+
+                        <ImageView
+                            android:id="@+id/steps_arrow"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_arrow_right"
+                            app:tint="@android:color/white"
+                            android:alpha="0.8"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/icon_steps"
+                            app:layout_constraintBottom_toBottomOf="@+id/icon_steps" />
+
+                        <TextView
+                            android:id="@+id/steps_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="8,245"
+                            android:textColor="@android:color/white"
+                            android:textSize="28sp"
+                            android:fontFamily="sans-serif-medium"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/icon_steps"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- ОРИГИНАЛЬНАЯ ПОЛНАЯ КАРТОЧКА ШАГОВ - ЗАКОММЕНТИРОВАНО -->
+            <!--
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="10dp"
+                app:strokeWidth="0dp"
+                app:cardCornerRadius="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/card_weight">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/steps_card_gradient"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/icon_steps"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_footsteps"
+                        android:padding="8dp"
+                        android:background="@drawable/circle_icon_background"
+                        app:tint="@android:color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/steps_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Шаги"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toEndOf="@+id/icon_steps"
+                        app:layout_constraintTop_toTopOf="@+id/icon_steps"
+                        app:layout_constraintBottom_toBottomOf="@+id/icon_steps"/>
+
+                    <ImageView
+                        android:id="@+id/steps_arrow"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="@android:color/white"
+                        android:alpha="0.7"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/steps_progress_container"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="24dp"
+                        app:layout_constraintTop_toBottomOf="@+id/icon_steps"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <ProgressBar
+                            android:id="@+id/steps_circular_progress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:indeterminate="false"
+                            android:max="100"
+                            android:progress="85"
+                            android:progressDrawable="@drawable/circle_progress_steps"
+                            android:background="@android:color/transparent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <TextView
+                            android:id="@+id/steps_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10,345"
+                            android:textColor="@android:color/white"
+                            android:textSize="26sp"
+                            android:fontFamily="sans-serif-medium"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/steps_goal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="из 10,000"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:alpha="0.8"
+                        app:layout_constraintTop_toBottomOf="@+id/steps_progress_container"
+                        app:layout_constraintStart_toStartOf="@+id/steps_progress_container"
+                        app:layout_constraintEnd_toEndOf="@+id/steps_progress_container"/>
+
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/steps_chart"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintTop_toTopOf="@+id/steps_progress_container"
+                        app:layout_constraintBottom_toBottomOf="@+id/steps_goal"
+                        app:layout_constraintStart_toEndOf="@+id/steps_progress_container"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+            -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

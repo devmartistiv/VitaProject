@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/card_background"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="1dp"
+    app:rippleColor="@color/ripple_color"
+    app:strokeColor="@color/gray_200"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Номер упражнения в круге -->
+        <TextView
+            android:id="@+id/exercise_order"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/rounded_circle_accent"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <!-- Название упражнения -->
+        <TextView
+            android:id="@+id/exercise_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/delete_button"
+            app:layout_constraintStart_toEndOf="@+id/exercise_order"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Жим гантелей на наклонной скамье" />
+
+        <!-- Мышечные группы -->
+        <TextView
+            android:id="@+id/exercise_muscle_groups"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/secondary_text"
+            app:layout_constraintEnd_toEndOf="@+id/exercise_name"
+            app:layout_constraintStart_toStartOf="@+id/exercise_name"
+            app:layout_constraintTop_toBottomOf="@+id/exercise_name"
+            tools:text="Грудь, Плечи, Трицепс" />
+
+        <!-- Детали сетов и повторений -->
+        <TextView
+            android:id="@+id/exercise_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/accent_color"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/exercise_name"
+            app:layout_constraintStart_toStartOf="@+id/exercise_name"
+            app:layout_constraintTop_toBottomOf="@+id/exercise_muscle_groups"
+            tools:text="3 подхода × 12 повторений" />
+
+        <!-- Кнопка удаления упражнения -->
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Удалить упражнение"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/arrow_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"
+            app:tint="@color/gray_400" />
+
+        <!-- Иконка стрелки -->
+        <ImageView
+            android:id="@+id/arrow_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Открыть детали упражнения"
+            android:src="@drawable/ic_arrow_forward"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray_400" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView> 

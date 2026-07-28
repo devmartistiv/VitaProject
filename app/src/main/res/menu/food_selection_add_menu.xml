@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_create_product"
+        android:icon="@drawable/ic_food"
+        android:title="Создать продукт" />
+    <item
+        android:id="@+id/menu_create_dish"
+        android:icon="@drawable/ic_dinner"
+        android:title="Создать блюдо" />
+    <item
+        android:id="@+id/menu_add_vitamins"
+        android:icon="@drawable/ic_vitamin"
+        android:title="Добавить витамины" />
+</menu>

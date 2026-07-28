@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?android:attr/colorBackground"
+        app:titleTextColor="?android:attr/textColorPrimary"
+        app:title="Фильтры"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationContentDescription="Назад" />
+
+    <!-- Основной контент -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Поле поиска оборудования -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="4dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/ic_search"
+                    android:alpha="0.6"
+                    app:tint="@color/gray_600"/>
+
+                <EditText
+                    android:id="@+id/equipment_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Поиск оборудования..."
+                    android:padding="12dp"
+                    android:textSize="14sp"
+                    android:textColorHint="@color/gray_500"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Кнопка "Выбрать все" -->
+        <LinearLayout
+            android:id="@+id/select_all_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="12dp">
+
+            <CheckBox
+                android:id="@+id/select_all_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/orange_500"
+                android:clickable="false"
+                android:focusable="false" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Выбрать все"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="?android:attr/textColorPrimary"
+                android:layout_marginStart="12dp" />
+
+            <TextView
+                android:id="@+id/clear_all_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Сбросить"
+                android:textColor="@color/orange_500"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+
+        <!-- Разделитель -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/dividerHorizontal"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Список оборудования -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/equipment_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp" />
+
+    </LinearLayout>
+
+    <!-- Нижняя панель с кнопкой -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?android:attr/colorBackground"
+        android:elevation="8dp"
+        android:padding="16dp">
+
+        <!-- Разделитель -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/dividerHorizontal"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Кнопка сохранить -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_filter_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сохранить"
+            app:backgroundTint="@color/orange_500"
+            app:cornerRadius="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:paddingVertical="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

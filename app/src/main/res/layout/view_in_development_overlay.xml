@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: Доработать стили для разных размеров экрана -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/blur_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BBFFFFFF"
+        android:alpha="0.85" />
+
+    <TextView
+        android:id="@+id/development_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="В РАЗРАБОТКЕ"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#FF5722"
+        android:rotation="-15"
+        android:background="@drawable/development_background"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp" />
+
+</FrameLayout> 

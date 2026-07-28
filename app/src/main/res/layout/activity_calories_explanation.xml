@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorBackground">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBackground"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/black"
+        app:title="Дневная норма калорий"
+        app:titleTextColor="@color/textColorPrimary" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Текущие цели: Калории + БЖУ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="@color/profile_card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ваши текущие цели"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/profile_text_primary"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Калории -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Калории"
+                                android:textSize="14sp"
+                                android:textColor="@color/profile_text_secondary"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/currentCaloriesValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2500 ккал"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:textColor="#4CAF50" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Разделитель -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/profile_text_secondary"
+                        android:alpha="0.2"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- БЖУ в одной строке -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <!-- Белки -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Белки"
+                                android:textSize="12sp"
+                                android:textColor="@color/profile_text_secondary"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/currentProteinValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="120 г"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#4CAF50" />
+
+                        </LinearLayout>
+
+                        <!-- Жиры -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Жиры"
+                                android:textSize="12sp"
+                                android:textColor="@color/profile_text_secondary"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/currentFatsValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="70 г"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#FF9800" />
+
+                        </LinearLayout>
+
+                        <!-- Углеводы -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Углеводы"
+                                android:textSize="12sp"
+                                android:textColor="@color/profile_text_secondary"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/currentCarbsValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="250 г"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#2196F3" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Объяснение расчета -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="15dp"
+
+                app:cardBackgroundColor="@color/profile_card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Как рассчитывается ваша норма"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/profile_text_primary"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:id="@+id/calculatedCaloriesText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="На основе ваших данных ваша базовая потребность в энергии составляет X ккал/день."
+                        android:textSize="14sp"
+                        android:textColor="@color/profile_text_secondary"
+                        android:layout_marginBottom="16dp"
+                        android:lineSpacingExtra="4dp" />
+
+                    <!-- Детализация расчета -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+
+                        android:background="@drawable/rounded_background_light"
+                        android:padding="16dp">
+
+                        <!-- BMR -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="8dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Базовый метаболизм (BMR):"
+                                android:textSize="14sp"
+                                android:textColor="@color/profile_text_primary" />
+
+                            <TextView
+                                android:id="@+id/bmrValueText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1800 ккал"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/profile_text_primary" />
+
+                        </LinearLayout>
+
+                        <!-- Активность -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Уровень активности:"
+                                android:textSize="14sp"
+                                android:textColor="@color/profile_text_primary"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/activityFactorText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Умеренная активность (коэффициент: 1.55)"
+                                android:textSize="12sp"
+                                android:textColor="@color/profile_text_secondary" />
+
+                        </LinearLayout>
+
+                        <!-- Корректировка по цели -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Корректировка по цели:"
+                                android:textSize="14sp"
+                                android:textColor="@color/profile_text_primary"
+                                android:layout_marginBottom="4dp" />
+
+                            <TextView
+                                android:id="@+id/goalAdjustmentText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Снижение веса: -500 ккал"
+                                android:textSize="12sp"
+                                android:textColor="@color/profile_text_secondary" />
+
+                        </LinearLayout>
+
+                        <!-- Итоговый результат -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/profile_text_secondary"
+                            android:alpha="0.3"
+                            android:layout_marginVertical="8dp" />
+
+                        <TextView
+                            android:id="@+id/finalCaloriesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Рассчитанная норма: 2500 ккал"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#4CAF50" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Редактирование целей: Калории + БЖУ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="@color/profile_card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Настроить цели"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/profile_text_primary"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Установите собственные значения калорий и макронутриентов или используйте автоматически рассчитанные."
+                        android:textSize="14sp"
+                        android:textColor="@color/profile_text_secondary"
+                        android:layout_marginBottom="16dp"
+                        android:lineSpacingExtra="4dp" />
+
+                    <!-- Калории -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/customGoalLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="Калории (ккал/день)"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:hintTextColor="@color/textColorSecondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_info_details"
+                        app:startIconTint="@color/colorPrimary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/customGoalInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLength="4" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- БЖУ в одной строке -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:layout_marginBottom="16dp">
+
+                        <!-- Белки -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customProteinLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="Белки (г)"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:hintTextColor="@color/textColorSecondary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/customProteinInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="3" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Жиры -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customFatsLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="Жиры (г)"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:hintTextColor="@color/textColorSecondary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/customFatsInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="3" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Углеводы -->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/customCarbsLayout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="Углеводы (г)"
+                            app:boxStrokeColor="@color/colorPrimary"
+                            app:hintTextColor="@color/textColorSecondary">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/customCarbsInput"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="3" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <!-- Кнопки действий -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/resetToCalculatedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Сбросить всё"
+                            android:layout_marginEnd="8dp"
+                            android:visibility="gone"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            app:strokeWidth="1dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/setCustomGoalButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Сохранить"
+                            android:textColor="@color/white"
+                            android:backgroundTint="@color/black" />
+
+                    </LinearLayout>
+
+                    <!-- Скрытые кнопки для совместимости -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/setMacrosButton"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/resetMacrosButton"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Рекомендации -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+
+                app:cardBackgroundColor="@color/profile_card_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Важные рекомендации"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/profile_text_primary"
+                        android:layout_marginBottom="12dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="• Минимальная норма для женщин: 1500 ккал/день\n• Минимальная норма для мужчин: 1700 ккал/день\n• Для безопасного снижения веса рекомендуется дефицит 300-500 ккал\n• При наборе массы профицит не должен превышать 500 ккал\n• Консультируйтесь с врачом при значительных изменениях рациона"
+                        android:textSize="14sp"
+                        android:textColor="@color/profile_text_secondary"
+                        android:lineSpacingExtra="6dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

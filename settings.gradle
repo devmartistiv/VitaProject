@@ -1,0 +1,37 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+     
+
+    }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+        maven {
+            url "https://artifactory-external.vkpartner.ru/artifactory/vkid-sdk-android/"
+        }
+        maven {
+            url "https://artifactory-external.vkpartner.ru/artifactory/maven/"
+        }
+        maven {
+            url "https://artifactory-external.vkpartner.ru/artifactory/vk-id-captcha/android/"
+        }
+    }
+
+
+}
+
+rootProject.name = "VitaMove"
+include ':app' 

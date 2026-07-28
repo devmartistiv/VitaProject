@@ -1,0 +1,275 @@
+<resources>
+    <string name="app_name">Vitamove</string>
+    <string name="onboarding_title_1">Добро пожаловать в VitaMove</string>
+    <string name="onboarding_desc_1">Ваш персональный помощник в правильном питании</string>
+
+    <!-- Основные заголовки для навигации -->
+    <string name="title_home">Главная</string>
+    <string name="title_food">Питание</string>
+    <string name="title_workouts">Тренировки</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_settings">Настройки</string>
+    <string name="edit">Редактировать</string>
+
+    <!-- Ключ для работы с Supabase -->
+    <string name="supabase_key">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFqb3BiZGlhZmdiYnN0a3dtaHB0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2MjE1NTAwMDAsImV4cCI6MTkzNzEyNjAwMH0.pNZS9fIMNrH-H9EqwUJVJ3NxXCjR-XG9bh5r7MBdnqo</string>
+
+    <string name="onboarding_title_2">Отслеживайте питание</string>
+    <string name="onboarding_desc_2">Контролируйте калории и следите за балансом БЖУ</string>
+
+    <string name="onboarding_title_3">Достигайте целей</string>
+    <string name="onboarding_desc_3">Мы поможем вам достичь желаемых результатов</string>
+
+    <string name="workout_details">Детали тренировки</string>
+
+    <!-- Строки для программ тренировок -->
+    <string name="my_programs_title">Мои программы</string>
+    <string name="programs_empty_list">Нет доступных программ</string>
+
+    <string name="active_program_days_title">Дни программы</string>
+    <string name="user_programs_title">Мои программы</string>
+    <string name="recommended_programs_title">Рекомендуемые программы</string>
+    <string name="programs_title">Программы тренировок</string>
+    <string name="programs_subtitle">Найдите идеальную программу для ваших фитнес-целей</string>
+    <string name="programs_search_hint">Поиск программ</string>
+    <string name="programs_active_title">Активная программа</string>
+    <string name="programs_continue">Продолжить</string>
+    <string name="programs_day">День %1$d</string>
+    <string name="programs_week">Неделя %1$d</string>
+    <string name="filter_all">Все</string>
+    <string name="filter_strength">Сила</string>
+    <string name="filter_muscle">Мышечная масса</string>
+    <string name="filter_weight_loss">Похудение</string>
+    <string name="filter_endurance">Выносливость</string>
+    <string name="filter_flexibility">Гибкость</string>
+    <string name="level_beginner">Начинающий</string>
+    <string name="level_intermediate">Средний</string>
+    <string name="level_advanced">Продвинутый</string>
+    <string name="programs_empty">Нет доступных программ</string>
+    <string name="programs_loading">Загрузка программ…</string>
+    <string name="create_program">Создать программу</string>
+    
+    <plurals name="program_duration_weeks">
+        <item quantity="one">%d неделя</item>
+        <item quantity="few">%d недели</item>
+        <item quantity="many">%d недель</item>
+        <item quantity="other">%d недель</item>
+    </plurals>
+    
+    <plurals name="program_workouts_per_week">
+        <item quantity="one">%d тренировка/неделю</item>
+        <item quantity="few">%d тренировки/неделю</item>
+        <item quantity="many">%d тренировок/неделю</item>
+        <item quantity="other">%d тренировок/неделю</item>
+    </plurals>
+
+    <string name="program_image_description">Изображение программы тренировок</string>
+    <string name="add_to_favorites">Добавить в избранное</string>
+    <string name="remove_from_favorites">Удалить из избранного</string>
+    <string name="start_program_short">Начать</string>
+
+    <string name="goal_strength">Сила</string>
+    <string name="goal_muscle">Мышечная масса</string>
+    <string name="goal_endurance">Выносливость</string>
+    <string name="goal_weight_loss">Похудение</string>
+    <string name="goal_maintenance">Поддержание</string>
+    <!-- Этот ресурс оставлен для обратной совместимости, но рекомендуется использовать TextUtils.formatProgramDuration() -->
+    <string name="program_duration_format">%1$d недель, %2$d тренировок в неделю</string>
+    
+    <!-- Строки для деталей программы -->
+    <string name="about_program">О программе</string>
+    <string name="program_goals">Цели программы</string>
+    <string name="program_days">Дни программы</string>
+    <string name="day_number_format">День %d</string>
+    <string name="day_default_title">День %d: Тренировка</string>
+    <string name="duration_minutes">%d минут</string>
+    <string name="view_details">Подробнее</string>
+    <string name="program_started_success">Программа успешно запущена</string>
+    <string name="error_starting_program">Ошибка при запуске программы</string>
+    <string name="added_to_favorites">Добавлено в избранное</string>
+    <string name="removed_from_favorites">Удалено из избранного</string>
+    <string name="error_updating_favorite">Ошибка при обновлении избранного</string>
+    <string name="selected_day">Выбран день %d</string>
+    
+    <plurals name="exercises_count">
+        <item quantity="one">упражнение</item>
+        <item quantity="few">упражнения</item>
+        <item quantity="many">упражнений</item>
+        <item quantity="other">упражнений</item>
+    </plurals>
+    
+    <plurals name="exercise_count">
+        <item quantity="one">%d упражнение</item>
+        <item quantity="few">%d упражнения</item>
+        <item quantity="many">%d упражнений</item>
+        <item quantity="other">%d упражнений</item>
+    </plurals>
+    
+    <plurals name="sets_count">
+        <item quantity="one">подход</item>
+        <item quantity="few">подхода</item>
+        <item quantity="many">подходов</item>
+        <item quantity="other">подходов</item>
+    </plurals>
+
+    <!-- Программы тренировок -->
+    <string name="program_setup_title">Настройка программы</string>
+    <string name="program_setup_start_date">Дата начала</string>
+    <string name="program_setup_workout_days">Тренировочные дни</string>
+    <string name="program_setup_reminders">Напоминания</string>
+    <string name="program_setup_reminder_time">Время напоминания</string>
+    <string name="program_setup_progression">Прогрессия нагрузки</string>
+    <string name="program_setup_auto_progression">Автоматическая</string>
+    <string name="program_setup_manual_progression">Ручная</string>
+    <string name="setup_program">Настроить</string>
+    <string name="start_program">Начать программу</string>
+    <string name="continue_program">Продолжить</string>
+    <string name="view_details_short">Подробнее</string>
+    <string name="cancel">Отмена</string>
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="change_date">Изменить дату</string>
+    <string name="change_time">Изменить время</string>
+
+    <!-- Строки для экрана тренировок -->
+    <string name="workouts_title">Мои тренировки</string>
+    <string name="workouts_subtitle">Ваши запланированные и выполненные тренировки</string>
+    <string name="no_workouts_message">У вас нет запланированных тренировок</string>
+    <string name="add_workout">Добавить тренировку</string>
+    <string name="workout_duration_label">Длительность</string>
+    <string name="workout_exercises_label">Упражнений</string>
+    <string name="workout_calories_label">Сожжено ккал</string>
+    <string name="start_workout">Начать</string>
+    <string name="workout_type_description">Тип тренировки</string>
+    <string name="not_scheduled">Не запланировано</string>
+    
+    <!-- Новые строки для элементов тренировок -->
+    <string name="workout_type_icon_description">Иконка типа тренировки</string>
+    <string name="show_workout_details">Показать детали тренировки</string>
+    <string name="today">Сегодня</string>
+    <string name="status_completed">Выполнено</string>
+    <string name="status_missed">Пропущено</string>
+    <string name="status_in_progress">В процессе</string>
+    <string name="status_scheduled">Запланировано</string>
+    <string name="workout_loading">Загрузка тренировок...</string>
+    <string name="workout_empty">Нет доступных тренировок</string>
+    <string name="workout_add_new">Добавить тренировку</string>
+    <string name="filter_by_status">Фильтр по статусу</string>
+    <string name="filter_by_type">Фильтр по типу</string>
+    <string name="sort_by_date">Сортировать по дате</string>
+    <string name="sort_by_duration">Сортировать по длительности</string>
+    <string name="search_workouts">Поиск тренировок</string>
+    <string name="change_program">Сменить</string>
+    <string name="program_change_title">Смена программы</string>
+    <string name="program_change_message">Вы действительно хотите сменить активную программу? Текущий прогресс может быть потерян.</string>
+    <string name="program_change_confirm">Сменить</string>
+    <string name="program_change_cancel">Отмена</string>
+    <string name="program_deactivated">Программа деактивирована</string>
+    <string name="program_deactivation_error">Не удалось деактивировать программу</string>
+
+    <!-- Новые строки для настройки программы -->
+    <string name="programs_configure">Настроить</string>
+    <string name="program_config_title">Настройка программы</string>
+    <string name="program_config_days">Выбрать дни тренировок</string>
+    <string name="program_config_save">Сохранить</string>
+    <string name="program_config_cancel">Отмена</string>
+    <string name="program_config_monday">Понедельник</string>
+    <string name="program_config_tuesday">Вторник</string>
+    <string name="program_config_wednesday">Среда</string>
+    <string name="program_config_thursday">Четверг</string>
+    <string name="program_config_friday">Пятница</string>
+    <string name="program_config_saturday">Суббота</string>
+    <string name="program_config_sunday">Воскресенье</string>
+
+    <string name="continue_text">Продолжить</string>
+    <string name="finish">Завершить</string>
+    <string name="step_counter">Шаг %1$d из %2$d</string>
+    <string name="back">Назад</string>
+    
+    <!-- Строки для деталей упражнения -->
+    <string name="exercise_details">Детали упражнения</string>
+    <string name="exercise_difficulty">Сложность:</string>
+    <string name="exercise_type">Тип:</string>
+    <string name="exercise_description">Описание</string>
+    <string name="exercise_muscles">Целевые мышцы:</string>
+    <string name="exercise_equipment">Оборудование:</string>
+    <string name="exercise_settings">Стандартные настройки</string>
+    <string name="exercise_sets">Подходы:</string>
+    <string name="exercise_reps">Повторения:</string>
+    <string name="exercise_rest">Отдых:</string>
+    <string name="add_to_workout">Добавить в тренировку</string>
+    <string name="difficulty_beginner">Начинающий</string>
+    <string name="difficulty_intermediate">Средний</string>
+    <string name="difficulty_advanced">Продвинутый</string>
+    <string name="exercise_image_description">Изображение упражнения</string>
+    <string name="exercise_added_to_workout">Упражнение добавлено в тренировку</string>
+    <string name="error_exercise_not_found">Упражнение не найдено</string>
+    <string name="error_loading_exercise">Ошибка загрузки упражнения: </string>
+    <string name="no_equipment_required">Не требуется</string>
+    <string name="rest_seconds_format">%1$d сек</string>
+    <string name="exercise_image">Изображение упражнения</string>
+    <string name="exercise">Упражнение</string>
+    <string name="difficulty">Сложность</string>
+    <string name="description">Описание</string>
+    <string name="muscle_groups">Группы мышц</string>
+    <string name="equipment_required">Необходимое оборудование</string>
+    <string name="default_settings">Стандартные настройки</string>
+    <string name="sets">Подходы</string>
+    <string name="repetitions">Повторения</string>
+    <string name="rest_time">Отдых</string>
+    
+    <!-- Новые строки для экрана деталей упражнения -->
+    <string name="exercise_primary_muscles">Основные мышцы:</string>
+    <string name="exercise_secondary_muscles">Вспомогательные мышцы:</string>
+    <string name="exercise_stabilizer_muscles">Мышцы-стабилизаторы:</string>
+    <string name="exercise_instructions">Инструкция по выполнению:</string>
+    <string name="exercise_common_mistakes">Распространенные ошибки</string>
+    <string name="exercise_contraindications">Противопоказания</string>
+    <string name="no_contraindications">Противопоказания отсутствуют</string>
+    <string name="no_muscles_involved">Не указаны</string>
+    <string name="no_instructions">Инструкция отсутствует</string>
+    <string name="no_common_mistakes">Не указаны</string>
+
+    <string name="create_program_title">Создание новой программы</string>
+    <string name="create_program_subtitle">Заполните основную информацию о программе тренировок</string>
+    <string name="program_name_hint">Название программы</string>
+    <string name="program_level_label">Уровень сложности</string>
+    <string name="program_weeks_label">Количество недель</string>
+    <string name="program_days_per_week_label">Дней в неделю</string>
+    <string name="next_button">Далее</string>
+    <string name="error_empty_name">Введите название программы</string>
+    <string name="error_save_program">Ошибка при сохранении программы</string>
+
+    <!-- Строки для экрана создания недели программы -->
+    <string name="create_program_week_default_title">Неделя 1</string>
+    <string name="create_program_button_copy_week">Скопировать в след. неделю</string>
+    <string name="create_program_button_next_week">Следующая неделя</string>
+    <string name="default_program_name">Моя программа</string>
+    <string name="program_type_user_created_description">Программа создана пользователем и видна только ему</string>
+
+    <string name="back_button_description">Вернуться назад</string>
+
+    <!-- Строки для экрана итогов тренировки -->
+    <string name="trophy_icon">Иконка трофея</string>
+    <string name="great_job">Отличная работа! 💪</string>
+    <string name="you_did_it">Вы сделали это! 🎉</string>
+    <string name="super_workout">Супер тренировка! 🔥</string>
+    <string name="getting_stronger">Вы становитесь сильнее! ⚡</string>
+    <string name="keep_going">Продолжайте в том же духе! 🚀</string>
+    <string name="incredible_result">Невероятный результат! ⭐</string>
+    <string name="workout_completed">Тренировка завершена</string>
+    <string name="time_icon">Иконка времени</string>
+    <string name="duration">Продолжительность</string>
+    <string name="tonnage_icon">Иконка тоннажа</string>
+    <string name="tonnage_kg">Тоннаж (кг)</string>
+    <string name="calories_icon">Иконка калорий</string>
+    <string name="calories_burned">Сожжено калорий</string>
+    <string name="done">Готово</string>
+    <string name="user_added_product_warning">Продукт добавлен пользователем. Данные могут быть неточными.</string>
+    <string name="content_desc_open_reports">Открыть историю отчетов</string>
+</resources>

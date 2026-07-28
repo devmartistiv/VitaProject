@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="350dp"
+    android:height="220dp"
+    android:viewportWidth="350"
+    android:viewportHeight="220">
+    
+    <!-- Угловые элементы сканера (прямоугольник для штрихкода) -->
+    <!-- Левый верхний угол -->
+    <path
+        android:pathData="M30,30 L80,30"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <path
+        android:pathData="M30,30 L30,80"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <!-- Правый верхний угол -->
+    <path
+        android:pathData="M320,30 L270,30"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <path
+        android:pathData="M320,30 L320,80"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <!-- Левый нижний угол -->
+    <path
+        android:pathData="M30,190 L80,190"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <path
+        android:pathData="M30,190 L30,140"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <!-- Правый нижний угол -->
+    <path
+        android:pathData="M320,190 L270,190"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+    
+    <path
+        android:pathData="M320,190 L320,140"
+        android:strokeWidth="6"
+        android:strokeColor="#FF9800"
+        android:strokeLineCap="round" />
+</vector> 

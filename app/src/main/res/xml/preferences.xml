@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="general_category"
+        android:title="Общие настройки"
+        android:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="fitness_goal"
+            android:title="Цель тренировок"
+            android:dialogTitle="Выберите вашу цель"
+            android:entries="@array/fitness_goal_entries"
+            android:entryValues="@array/fitness_goal_values"
+            android:defaultValue="weight_loss"
+            android:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="notifications_category"
+        android:title="Уведомления"
+        android:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="notifications_enabled"
+            android:title="Включить уведомления"
+            android:summary="Получать напоминания о тренировках и других событиях"
+            android:defaultValue="true"
+            android:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="dinner_notifications"
+            android:title="Напоминания об ужине"
+            android:summary="Напоминание записать ужин"
+            android:defaultValue="true"
+            android:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="dinner_time"
+            android:title="Время напоминания об ужине"
+            android:summary="19:30"
+            android:dependency="dinner_notifications"
+            android:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="water_notifications"
+            android:title="Напоминания о воде"
+            android:summary="Напоминание выпить воду"
+            android:defaultValue="true"
+            android:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="water_time"
+            android:title="Время напоминания о воде"
+            android:summary="15:00"
+            android:dependency="water_notifications"
+            android:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:key="workout_notifications"
+            android:title="Напоминания о тренировках"
+            android:summary="Напоминание о тренировке"
+            android:defaultValue="true"
+            android:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="workout_time"
+            android:title="Время напоминания о тренировке"
+            android:summary="10:00"
+            android:dependency="workout_notifications"
+            android:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        android:title="Внешний вид"
+        android:iconSpaceReserved="false">
+
+        <ListPreference
+            android:key="dark_mode"
+            android:title="Тема приложения"
+            android:summary="Выберите светлую или темную тему"
+            android:defaultValue="system"
+            android:entries="@array/dark_mode_entries"
+            android:entryValues="@array/dark_mode_values"
+            android:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        android:title="Профиль"
+        android:iconSpaceReserved="false">
+
+        <Preference
+            android:key="edit_profile"
+            android:title="Редактировать профиль"
+            android:summary="Изменить основную информацию профиля"
+            android:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Аккаунт"
+        android:iconSpaceReserved="false">
+
+        <Preference
+            android:key="delete_account"
+            android:title="Удалить аккаунт"
+            android:summary="Удалить аккаунт и всю связанную с ним информацию"
+            android:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen> 

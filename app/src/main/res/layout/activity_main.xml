@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_main_actvity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?android:attr/colorBackground"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav" />
+
+
+    <LinearLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:background="?attr/colorSurface"
+        android:gravity="center"
+        android:paddingHorizontal="4dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/nav_assistant"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btn_assistant"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/assistant"
+                android:contentDescription="Ассистент"
+                app:tint="@drawable/bottom_nav_item_selector" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textAssistant"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Ассистент"-->
+            <!--                android:textSize="10sp"-->
+            <!--                android:textColor="@drawable/bottom_nav_item_selector"-->
+            <!--                android:layout_marginTop="2dp"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_workouts"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btn_workouts"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_dumbbell"
+                android:contentDescription="Тренировки"
+                app:tint="@drawable/bottom_nav_item_selector" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textWorkouts"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Тренировки"-->
+            <!--                android:textSize="10sp"-->
+            <!--                android:textColor="@drawable/bottom_nav_item_selector"-->
+            <!--                android:layout_marginTop="2dp"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/nav_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+
+                android:id="@+id/btn_home"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_main_home"
+                android:contentDescription="Главная"
+                app:tint="@drawable/bottom_nav_item_selector" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textHome"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Главная"-->
+            <!--                android:textSize="10sp"-->
+            <!--                android:textColor="@drawable/bottom_nav_item_selector"-->
+            <!--                android:layout_marginTop="2dp"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_nutrition"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/btn_nutrition"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_food"
+                android:contentDescription="Питание"
+                app:tint="@drawable/bottom_nav_item_selector" />
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/textNutrition"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Питание"-->
+            <!--                android:textSize="10sp"-->
+            <!--                android:textColor="@drawable/bottom_nav_item_selector"-->
+            <!--                android:layout_marginTop="2dp"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nav_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+            <!--TODO 24dp старый размер иконок-->
+            <ImageView
+                android:id="@+id/btn_profile"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/profile_new"
+                android:contentDescription="Профиль"
+                app:tint="@drawable/bottom_nav_item_selector" />
+
+            <!--            <TextView-->
+
+            <!--                android:id="@+id/textProfile"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Профиль"-->
+            <!--                android:textSize="10sp"-->
+            <!--                android:textColor="@drawable/bottom_nav_item_selector"-->
+            <!--                android:layout_marginTop="2dp"/>-->
+        </LinearLayout>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/nav_indicator"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@drawable/nav_indicator_glow"
+        app:layout_constraintTop_toTopOf="@id/bottom_nav"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

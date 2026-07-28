@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Какой у Вас текущий вес?"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:layout_marginBottom="16dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <!-- Значение веса крупным шрифтом в центре экрана -->
+            <TextView
+                android:id="@+id/tvWeightValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="70"
+                android:textSize="42sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <TextView
+                android:id="@+id/tvWeightUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="кг"
+                android:textSize="18sp"
+                android:textColor="?android:attr/textColorSecondary"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvWeightValue"
+                app:layout_constraintStart_toEndOf="@id/tvWeightValue" />
+
+            <!-- RecyclerView для отображения линейки веса -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/weightRulerRecyclerView"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="24dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/weight_ruler_padding"
+                android:paddingEnd="@dimen/weight_ruler_padding"
+                app:layout_constraintTop_toBottomOf="@id/tvWeightValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+                
+            <!-- Центральный индикатор -->
+            <View
+                android:id="@+id/centerIndicator"
+                android:layout_width="2dp"
+                android:layout_height="70dp"
+                android:background="@color/orange_500"
+                app:layout_constraintTop_toTopOf="@id/weightRulerRecyclerView"
+                app:layout_constraintBottom_toBottomOf="@id/weightRulerRecyclerView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Карточка с ИМТ -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/gray_300"
+            app:cardBackgroundColor="?android:attr/colorBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Индекс массы тела (ИМТ)"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:layout_marginBottom="@dimen/spacing_small" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/bmiValueCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        app:cardCornerRadius="8dp"
+                        app:cardBackgroundColor="@color/orange_500"
+                        app:cardElevation="2dp"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:id="@+id/tvBmiValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="вы - 23.5"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <View
+                        android:id="@+id/bmiValuePointer"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@drawable/bmi_pointer"
+                        android:rotation="45"
+                        android:layout_gravity="center_horizontal|bottom" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/gradient_bmi_underweight" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/gradient_bmi_normal" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/gradient_bmi_overweight" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/bmiIndicator"
+                        android:layout_width="2dp"
+                        android:layout_height="12dp"
+                        android:background="@color/orange_500"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Недостаточный"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:gravity="start" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Нормальный"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Избыточный"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBmiDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="У Вас нормальный ИМТ. Это соответствует здоровому весу для вашего роста."
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_marginTop="@dimen/spacing_small" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

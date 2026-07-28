@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Фон заполнителя -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E0E0E0" />
+        </shape>
+    </item>
+    
+    <!-- Иконка -->
+    <item android:gravity="center">
+        <vector
+            android:width="120dp"
+            android:height="120dp"
+            android:viewportWidth="24.0"
+            android:viewportHeight="24.0">
+            <path
+                android:fillColor="#9E9E9E"
+                android:pathData="M20.57,14.86L22,13.43 20.57,12 17,15.57 8.43,7 12,3.43 10.57,2 9.14,3.43 7.71,2 5.57,4.14 4.14,2.71 2.71,4.14 4.14,5.57 2,7.71 3.43,9.14 2,10.57 3.43,12 7,8.43 15.57,17 12,20.57 13.43,22 14.86,20.57 16.29,22 18.43,19.86 19.86,21.29 21.29,19.86 19.86,18.43z" />
+        </vector>
+    </item>
+    
+    <!-- Текст внизу, без bitmap -->
+    <item android:gravity="center_horizontal|bottom" android:bottom="40dp">
+        <shape android:shape="rectangle">
+            <size android:height="1dp" android:width="1dp" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+</layer-list> 

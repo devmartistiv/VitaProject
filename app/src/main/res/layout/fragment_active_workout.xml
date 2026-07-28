@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="120dp">
+
+            <!-- Улучшенная карточка со статистикой и таймером -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Статистика тренировки"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="horizontal">
+
+                        <!-- Калории в левой части карточки (вместо таймера) -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_fire"
+                                app:tint="@color/orange_500"
+                                android:contentDescription="Калории" />
+
+                            <TextView
+                                android:id="@+id/workout_calories"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/orange_500"
+                                android:text="0"
+                                tools:text="120" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="калорий"
+                                android:textStyle="bold"
+                                android:textColor="@color/orange_500"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <!-- Вертикальный разделитель -->
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_300"
+                            android:layout_marginHorizontal="8dp" />
+
+                        <!-- Статистика подходов в центре -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_repeat"
+                                app:tint="@color/gray_700"
+                                android:contentDescription="Подходы" />
+
+                            <TextView
+                                android:id="@+id/total_sets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorPrimary"
+                                tools:text="11" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Подходов"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorSecondary" />
+
+                        </LinearLayout>
+
+                        <!-- Вертикальный разделитель -->
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_300"
+                            android:layout_marginHorizontal="8dp" />
+
+                        <!-- Статистика упражнений справа -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_fitness"
+                                app:tint="@color/gray_700"
+                                android:contentDescription="Упражнения" />
+
+                            <TextView
+                                android:id="@+id/total_exercises"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorPrimary"
+                                tools:text="2" />
+
+                            <TextView
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Упражнений"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="?android:attr/textColorSecondary" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Список упражнений -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/exercise_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingTop="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <!-- Кнопка "Завершить" тренировку на всю ширину экрана с таймером в левой части -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/finish_workout_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:text="Завершить"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_timer"
+        app:iconTint="@color/white"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <!-- Скрытый TextView для хранения значения таймера (будет отображаться в кнопке) -->
+    <TextView
+        android:id="@+id/workout_timer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:text="00:00" />
+
+    <!-- Кнопка "НАЧАТЬ ТРЕНИРОВКУ" на всю ширину экрана -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/start_workout_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:text="НАЧАТЬ ТРЕНИРОВКУ"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="24dp"
+        app:elevation="4dp" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

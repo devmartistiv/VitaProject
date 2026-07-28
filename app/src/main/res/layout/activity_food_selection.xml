@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        android:elevation="0dp"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:navigationIconTint="@color/black"
+        app:titleTextColor="@color/black"
+        app:titleCentered="true">
+
+
+        <ImageView
+            android:id="@+id/toolbar_add_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_add"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/black"
+            android:contentDescription="Добавить" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- Поиск и штрихкод -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingEnd="10dp"
+        android:paddingStart="12dp"
+        android:paddingBottom="14dp"
+        android:paddingTop="0dp"
+        android:gravity="center_vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/dividerColor">
+
+            <android.widget.SearchView
+                android:id="@+id/search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@null"
+                android:iconifiedByDefault="false"
+                android:queryHint="Поиск продуктов" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/barcode_scan_button"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:src="@drawable/ic_barcode"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/colorAccent"
+            android:contentDescription="Сканировать штрихкод" />
+
+    </LinearLayout>
+
+    <!-- Переключатель между избранными продуктами и блюдами -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="@color/textColorSecondary"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabIndicatorHeight="2dp"
+        android:visibility="gone">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Недавние" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Избранные" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Блюда" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Сообщение об отсутствии результатов -->
+    <TextView
+        android:id="@+id/empty_results_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="По данному запросу ничего не найдено"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:layout_marginTop="48dp"
+        android:visibility="gone"
+        android:textColor="@color/textColorPrimary" />
+
+    <!-- Список продуктов -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/food_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false" />
+
+        <!--        &lt;!&ndash; Кнопка добавления блюда &ndash;&gt;-->
+        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--            android:id="@+id/fab_add_dish"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="bottom|end"-->
+        <!--            android:layout_margin="16dp"-->
+        <!--            android:src="@drawable/ic_add"-->
+        <!--            android:contentDescription="Создать блюдо"-->
+        <!--            app:tint="@color/white_only"-->
+        <!--            android:backgroundTint="@color/colorPrimary"-->
+        <!--            android:visibility="gone" />-->
+
+        <!-- Панель множественного выбора -->
+        <LinearLayout
+            android:id="@+id/multi_selection_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:background="@drawable/rounded_background"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_selected"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Добавить (0)"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/colorAccent"
+                app:cornerRadius="16dp"
+                style="@style/Widget.MaterialComponents.Button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel_selection"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                app:icon="@drawable/ic_close"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:cornerRadius="16dp"
+                app:backgroundTint="@color/colorSurface"
+                app:iconTint="@color/textColorPrimary"
+                app:strokeColor="?attr/dividerColor"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout> 

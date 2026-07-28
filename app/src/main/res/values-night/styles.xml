@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Стиль для стандартной кнопки в приложении -->
+    <style name="Widget.VitaMove.Button" parent="Widget.Material3.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Стиль для кнопки "Начать" на экране онбординга -->
+    <style name="Widget.VitaMove.Button.Onboarding">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="iconTint">@android:color/white</item>
+        <item name="icon">@drawable/ic_arrow_right</item>
+        <item name="iconGravity">end</item>
+        <item name="iconPadding">12dp</item>
+        <item name="iconSize">24dp</item>
+    </style>
+
+    <!-- Стиль для кнопки с контуром -->
+    <style name="Widget.VitaMove.Button.OutlinedButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Переделать на M3!!!! -->
+    <style name="Widget.VitaMove.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/text_input_hint_color</item>
+        <item name="android:textColorHint">@color/text_input_hint_color</item>
+        <item name="endIconTint">@color/colorPrimary</item>
+        <item name="startIconTint">@color/colorPrimary</item>
+        <item name="hintEnabled">true</item>
+        <item name="hintAnimationEnabled">true</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+    </style>
+
+    <!-- Стиль для карточки статистики -->
+    <style name="Widget.VitaMove.Card.Stats" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="rippleColor">@color/ripple_color</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Стиль для заголовка в карточке статистики -->
+    <style name="TextAppearance.VitaMove.Card.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для цифр статистики -->
+    <style name="TextAppearance.VitaMove.Stats.Value" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/accent_color</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для подписей статистики -->
+    <style name="TextAppearance.VitaMove.Stats.Label" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
+    </style>
+
+    <!-- Стиль для элемента последней тренировки -->
+    <style name="Widget.VitaMove.Card.Workout" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="rippleColor">@color/ripple_color</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Стиль для заголовка на странице -->
+    <style name="TextAppearance.VitaMove.Headline" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/section_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для TextInputLayout с выпадающим списком -->
+    <style name="Widget.VitaMove.TextInputLayout.ExposedDropdownMenu" parent="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/text_input_box_stroke</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/text_input_hint_color</item>
+        <item name="android:textColorHint">@color/text_input_hint_color</item>
+        <item name="endIconTint">@color/accent_color</item>
+        <item name="startIconTint">@color/accent_color</item>
+        <item name="hintEnabled">true</item>
+        <item name="hintAnimationEnabled">true</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/input_background</item>
+    </style>
+
+    <!-- Пользовательский стиль для фильтрующих чипов -->
+    <style name="Widget.VitaMove.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textSize">14sp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="chipBackgroundColor">@color/chip_background</item>
+        <item name="rippleColor">@color/accent_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/accent_color</item>
+        <item name="checkedIconVisible">true</item>
+        <item name="checkedIconTint">@color/accent_color</item>
+    </style>
+
+    <!-- Стили для календаря -->
+    <style name="CalendarHeader" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CalendarDateText" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <style name="CalendarWeekText" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для заголовка тулбара -->
+    <style name="ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
+
+    <!-- Стиль для трекера питания -->
+    <style name="MealTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/meal_title_color</item>
+    </style>
+
+    <style name="MealSubtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/meal_subtitle_color</item>
+        <item name="android:layout_marginTop">4dp</item>
+    </style>
+
+    <!-- Стиль для полей в профиле пользователя -->
+    <style name="ProfileFieldText">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Стиль для неактивных полей ввода -->
+    <style name="InactiveInputField">
+        <item name="android:textColor">@color/secondary_text</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@null</item>
+        <item name="android:enabled">false</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <!-- Стиль для основной кнопки активной программы в темной теме -->
+    <style name="Widget.VitaMove.Button.ActiveProgram" parent="Widget.Material3.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="elevation">2dp</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconTint">@color/white</item>
+    </style>
+
+    <!-- Стиль для второстепенной кнопки активной программы в темной теме -->
+    <style name="Widget.VitaMove.Button.OutlinedActiveProgram" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/orange_500</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">4dp</item>
+        <item name="iconTint">@color/orange_500</item>
+    </style>
+
+    <!-- Стиль для кнопок на экранах опроса -->
+    <style name="Widget.VitaMove.Button.Survey">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingVertical">16dp</item>
+    </style>
+
+    <!-- Стиль для кнопки регистрации -->
+    <style name="Widget.VitaMove.Button.Register">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="elevation">4dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <!-- Стиль для кнопки Google при регистрации -->
+    <style name="Widget.VitaMove.Button.GoogleRegister">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="backgroundTint">?android:attr/colorBackground</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="elevation">4dp</item>
+        <item name="icon">@drawable/ic_google_logo</item>
+        <item name="iconSize">24dp</item>
+        <item name="iconTint">@null</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="strokeColor">?android:attr/textColorSecondary</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- Стиль для кнопки входа -->
+    <style name="Widget.VitaMove.Button.Login">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="elevation">4dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <!-- Стиль для темы без ActionBar -->
+    <style name="Theme.VitaMove.NoActionBar" parent="Theme.VitaMove">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/background_color</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+    </style>
+
+    <!-- Стиль для маскировки водяного знака -->
+    <style name="WatermarkHider" parent="">
+        <item name="android:windowBackground">@drawable/watermark_hider_background</item>
+    </style>
+
+    <!-- Тема для активностей с водяным знаком -->
+    <style name="Theme.VitaMove.NoActionBar.WatermarkHider" parent="Theme.VitaMove.NoActionBar">
+        <item name="android:windowBackground">@drawable/watermark_hider_background</item>
+    </style>
+
+    <style name="Widget.App.TextInputLayout.OutlinedBox.Dark" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/dark_input_background_color</item>
+        <item name="hintTextColor">@color/dark_input_hint_color</item>
+        <item name="android:textColorHint">@color/dark_input_hint_color</item>
+    </style>
+
+    <style name="CustomDatePickerStyle" parent="Widget.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="CustomDatePicker" parent="Widget.Material3.MaterialCalendar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:dayOfWeekTextAppearance">@style/TextAppearance.VitaMove.DatePicker.DayOfWeek.Night</item>
+    </style>
+
+    <style name="TextAppearance.VitaMove.DatePicker.DayOfWeek.Night" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Стили для MaterialCalendarView -->
+    <style name="CustomMaterialCalendarView" parent="Widget.Material3.MaterialCalendar">
+        <item name="mcv_selectionColor">@color/colorPrimary</item>
+        <item name="mcv_headerTextAppearance">@style/CalendarHeader</item>
+        <item name="mcv_dateTextAppearance">@style/CalendarDateText</item>
+        <item name="mcv_weekDayTextAppearance">@style/CalendarWeekText</item>
+        <item name="mcv_tileSize">40dp</item>
+    </style>
+
+    <!-- Стиль для текста в TabLayout в темной теме -->
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Стиль для BottomSheet диалога выбора нутриентов в темной теме -->
+    <style name="CustomBottomSheetStyle" parent="Theme.Material3.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+    </style>
+
+    <!-- Стиль для настройки внешнего вида BottomSheet в темной теме -->
+    <style name="CustomBottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="behavior_peekHeight">auto</item>
+        <item name="behavior_fitToContents">true</item>
+        <item name="behavior_hideable">true</item>
+    </style>
+
+    <!-- Стиль для кнопок в header_layout (в fragment_calories) -->
+    <style name="Widget.App.HeaderButton" parent="Widget.Material3.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/card_background</item>
+        <item name="iconTint">@color/colorPrimary</item>
+        <item name="cornerRadius">24dp</item>
+    </style>
+    <style name="Widget.App.Gbutton" parent="Widget.Material3.Button">
+
+        <item name="tintMode">multiply</item>
+
+    </style>
+    <!-- Стиль для центральной карточки с названием в header_layout -->
+    <style name="Widget.App.HeaderTitleCard" parent="CardView">
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <!-- Стиль для текста заголовка в header_layout -->
+    <style name="Widget.App.HeaderTitleText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <!-- Стиль для MaterialAlertDialog в темной теме -->
+    <style name="MaterialAlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="android:background">@color/card_background</item>
+        <item name="android:windowBackground">@color/card_background</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialogTitleStyle</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorGrey</item>
+    </style>
+
+    <style name="MaterialAlertDialogTitleStyle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/white_text</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

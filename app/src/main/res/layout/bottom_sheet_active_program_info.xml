@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background"
+    app:behavior_peekHeight="320dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Полоска для drag-and-drop -->
+        <View
+            android:layout_width="50dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@color/gray_400"/>
+
+        <!-- Заголовок программы -->
+        <TextView
+            android:id="@+id/program_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:text="Сплит для начинающих"/>
+
+        <!-- Продолжительность и частота тренировок -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/orange_500"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Продолжительность"/>
+                
+            <TextView
+                android:id="@+id/program_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?android:attr/textColorPrimary"
+                tools:text="8 недель, 3 дня в неделю"/>
+        </LinearLayout>
+
+        <!-- Уровень сложности -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_level"
+                app:tint="@color/orange_500"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Уровень сложности"/>
+                
+            <TextView
+                android:id="@+id/program_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?android:attr/textColorPrimary"
+                tools:text="Начинающий"/>
+        </LinearLayout>
+
+        <!-- Частота тренировок -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_repeat"
+                app:tint="@color/orange_500"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="Частота тренировок"/>
+                
+            <TextView
+                android:id="@+id/program_frequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="?android:attr/textColorPrimary"
+                tools:text="3 дня в неделю"/>
+        </LinearLayout>
+
+        <!-- Разделитель -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/divider_color"/>
+
+        <!-- Описание программы -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Описание программы"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <TextView
+            android:id="@+id/program_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:text="Эта программа разработана специально для начинающих. Сплит-тренировка разделяет нагрузку на различные группы мышц, что позволяет тренироваться более эффективно и давать мышцам достаточное время для восстановления."/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView> 
